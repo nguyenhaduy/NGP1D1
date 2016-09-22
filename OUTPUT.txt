@@ -1,1034 +1,198 @@
-Welcome to the Awesome Penguin message boards! What would you like to do?
+Print relation
 
-1. Log in
-2. Create new Account
-3. Exit
 
-Please enter your choice: 1
+Relation: Pirates
 
-Please enter your login information below
+      name      mascot   conquests
+---------------------------------------
+       Bob      parrot          29
+       Joe       skull           2
+      Davy     octopus         345
 
-username: sotdjin
-password: password2
-*****************
-**  MAIN MENU  **
-*****************
+Testing insert relation
+showing original relation2
 
 
-------------------------------------------------------------
-Relation: menu_to_show
+Relation: Pirates2
 
-(menu_number, menu_title)
+      name      mascot   conquests
+---------------------------------------
+relation2 after inserting relation
 
-(1, My Account)
-(2, Boards)
-(3, Messages)
-(4, Groups)
-(5, All the cool people)
 
-------------------------------------------------------------
+Relation: Pirates2
 
-Q. Quit
+      name      mascot   conquests
+---------------------------------------
+       Bob      parrot          29
+       Joe       skull           2
+      Davy     octopus         345
 
-Please enter a choice: 1
+selecting pirates with conquests less than 30 from relation2
 
-------------------------------------------------------------
-Relation: matching_usr
 
-(full_name, phone_number, fax_number, username, password, admin_flag, approved)
+Relation: select_table
 
-(Jin Woo Kim, 454-345-9876, 454-654-6544, sotdjin, password2, 0, 1)
+      name      mascot   conquests
+---------------------------------------
+       Bob      parrot          29
+       Joe       skull           2
 
-------------------------------------------------------------
+removing pirates with conquests less than 30 from relation2
 
 
-What would you like to do?
-        1. Update name
-        2. Update phone
-        3. Update fax
-        4. Update password
-        5. Return to the main menu
-Please enter your menu choice: 2
-What would you like your phone number to be: 213-213-2131
+Relation: Pirates2
 
-------------------------------------------------------------
-Relation: matching_usr
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
 
-(full_name, phone_number, fax_number, username, password, admin_flag, approved)
+projecting name and mascot from relation
 
-(Jin Woo Kim, 213-213-2131, 454-654-6544, sotdjin, password2, 0, 1)
 
-------------------------------------------------------------
+Relation: project_table
 
+      name      mascot
+--------------------------
+       Bob      parrot
+       Joe       skull
+      Davy     octopus
 
-What would you like to do?
-        1. Update name
-        2. Update phone
-        3. Update fax
-        4. Update password
-        5. Return to the main menu
-Please enter your menu choice: 4
-What would you like your password to be: Password2
+projecting name and mascot from relation2
 
-------------------------------------------------------------
-Relation: matching_usr
 
-(full_name, phone_number, fax_number, username, password, admin_flag, approved)
+Relation: project_table
 
-(Jin Woo Kim, 213-213-2131, 454-654-6544, sotdjin, Password2, 0, 1)
+      name      mascot
+--------------------------
+      Davy     octopus
 
-------------------------------------------------------------
+renaming name and mascot in relation
 
 
-What would you like to do?
-        1. Update name
-        2. Update phone
-        3. Update fax
-        4. Update password
-        5. Return to the main menu
-Please enter your menu choice: 5
-*****************
-**  MAIN MENU  **
-*****************
+Relation: Pirates
 
+Pirate Name        Flag   conquests
+---------------------------------------
+       Bob      parrot          29
+       Joe       skull           2
+      Davy     octopus         345
 
-------------------------------------------------------------
-Relation: menu_to_show
+showing reset relation
 
-(menu_number, menu_title)
 
-(1, My Account)
-(2, Boards)
-(3, Messages)
-(4, Groups)
-(5, All the cool people)
+Relation: Pirates1
 
-------------------------------------------------------------
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
 
-Q. Quit
+showing relation with Steve inserted
 
-Please enter a choice: 2
-******************
-**  BOARD MENU  **
-******************
 
-1. List Boards
-2. Go to a specific board
-M. Back to the Main Menu
+Relation: Pirates1
 
-Please enter a choice: 1
-******************
-**  BOARD LIST  **
-******************
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
+     Steve        fish          12
 
+union of relation and relation2
 
-------------------------------------------------------------
-Relation: show_boards
 
-(board_number, board_name)
+Relation: Pirates1
 
-(2, Penguins of the World)
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
+     Steve        fish          12
 
-------------------------------------------------------------
+Relation: Pirates2
 
-M. Back to the Main Menu
-B. Back to the Board Menu
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
+     Jerry      cannon          90
 
-Please enter a choice: 2
-------------------------------------
+Relation: Pirates1 + Pirates2
 
-------------------------------------------------------------
-Relation: board_to_display
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
+     Steve        fish          12
+     Jerry      cannon          90
 
-(board_name)
+difference of last query and relation
 
-(Penguins of the World)
 
-------------------------------------------------------------
+Relation: Pirates1 + Pirates2
 
-------------------------------------
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
+     Steve        fish          12
+     Jerry      cannon          90
 
-------------------------------------------------------------
-Relation: final_articles
+Relation: Pirates1
 
-(number, author, time, title)
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
+     Steve        fish          12
 
-(1, admin, Wed Oct  7 08:51:41 2015, Penguins Test)
-(2, sotdjin, Wed Oct  7 08:55:45 2015, Penguins Again!)
-(3, sotdjin, Wed Oct  7 08:58:36 2015, Penguins again)
-(4, admin, Wed Oct  7 08:59:39 2015, More Cool Penguins)
-(5, sotdjin, Wed Oct  7 09:11:03 2015, Please don't break)
+Relation: Pirates1 + Pirates2 - Pirates1
 
-------------------------------------------------------------
+      name      mascot   conquests
+---------------------------------------
+     Jerry      cannon          90
 
-s. Search articles (by username)
-A. Add an Article
-D. Delete an Article
-num. Select numbered article to read
+cross product of union query and relation
 
-M. Back the Main Menu
-B. Back to the Board Menu
-Please enter your choice: D
-Please choose an article number to delete: 3
-Article deleted.
-Please enter any character to return to the board: d
-------------------------------------
 
-------------------------------------------------------------
-Relation: board_to_display
+Relation: Pirates1 + Pirates2
 
-(board_name)
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
+     Steve        fish          12
+     Jerry      cannon          90
 
-(Penguins of the World)
+Relation: Pirates1
 
-------------------------------------------------------------
+      name      mascot   conquests
+---------------------------------------
+      Davy     octopus         345
+     Steve        fish          12
 
-------------------------------------
+Relation: Pirates1 + Pirates2*Pirates1
 
-------------------------------------------------------------
-Relation: final_articles
+      name      mascot   conquests        name      mascot   conquests
+------------------------------------------------------------------------------
+      Davy     octopus         345        Davy     octopus         345
+      Davy     octopus         345       Steve        fish          12
+     Steve        fish          12        Davy     octopus         345
+     Steve        fish          12       Steve        fish          12
+     Jerry      cannon          90        Davy     octopus         345
+     Jerry      cannon          90       Steve        fish          12
 
-(number, author, time, title)
+show reset relation
 
-(1, admin, Wed Oct  7 08:51:41 2015, Penguins Test)
-(2, sotdjin, Wed Oct  7 08:55:45 2015, Penguins Again!)
-(4, admin, Wed Oct  7 08:59:39 2015, More Cool Penguins)
-(5, sotdjin, Wed Oct  7 09:11:03 2015, Please don't break)
 
-------------------------------------------------------------
+Relation: Pirates3
 
-s. Search articles (by username)
-A. Add an Article
-D. Delete an Article
-num. Select numbered article to read
+      name      mascot   conquests
+---------------------------------------
+       Bob      parrot          29
+       Joe       skull           2
+      Davy     octopus         345
 
-M. Back the Main Menu
-B. Back to the Board Menu
-Please enter your choice: A
-Please enter a title for the article: testing for meeee
-Please enter the contents for the article: Please dont breakkkk
-------------------------------------
+Updating pirates with few_conquests in relation
 
-------------------------------------------------------------
-Relation: board_to_display
 
-(board_name)
+Relation: Pirates3
 
-(Penguins of the World)
-
-------------------------------------------------------------
-
-------------------------------------
-
-------------------------------------------------------------
-Relation: final_articles
-
-(number, author, time, title)
-
-(1, admin, Wed Oct  7 08:51:41 2015, Penguins Test)
-(2, sotdjin, Wed Oct  7 08:55:45 2015, Penguins Again!)
-(4, admin, Wed Oct  7 08:59:39 2015, More Cool Penguins)
-(5, sotdjin, Wed Oct  7 09:11:03 2015, Please don't break)
-(3, sotdjin, Wed Oct  7 09:19:38 2015, testing for meeee)
-
-------------------------------------------------------------
-
-s. Search articles (by username)
-A. Add an Article
-D. Delete an Article
-num. Select numbered article to read
-
-M. Back the Main Menu
-B. Back to the Board Menu
-Please enter your choice: M
-*****************
-**  MAIN MENU  **
-*****************
-
-
-------------------------------------------------------------
-Relation: menu_to_show
-
-(menu_number, menu_title)
-
-(1, My Account)
-(2, Boards)
-(3, Messages)
-(4, Groups)
-(5, All the cool people)
-
-------------------------------------------------------------
-
-Q. Quit
-
-Please enter a choice: 3
-
-Welcome to your inbox! You have the following messages:
-
-;
-------------------------------------------------------------
-Relation: printable
-
-(time, subject, sent_by)
-
-(Sun Oct 4 13:23:11 2015, Hola, mashley310)
-(Sun Oct 4 14:29:20 2015, RE:RE:Hola, mashley310)
-(Wed Oct  7 08:33:30 2015, RE: RE: test, admin)
-
-------------------------------------------------------------
-
-
-What would you like to do?
-        1. Open a message
-        2. Reply to a message
-        3. Write a new message
-        4. Delete a message
-        5. Return to main menu
-
-Please enter your choice: 2
-Enter the subject of the message to reply to: Hola
-Please enter your message:
-testingawadwa
-
-Default subject is "RE: Hola". Would you like to change it (y or n): n
-
-------------------------------------------------------------
-Relation: new_final
-
-(time, subject, content, sent_by, received_by)
-
-(Wed Oct  7 09:20:07 2015, RE: Hola, testingawadwa, sotdjin, mashley310)
-
-------------------------------------------------------------
-
-Table: messages
-0 Contents: Sun Oct 4 13:23:11 2015     Hola    Hey, what's up? mashley310      sotdjin
-1 Contents: Sun Oct 4 14:25:13 2015     RE:Hola Nm. What are you doing here?    sotdjin mashley310
-2 Contents: Sun Oct 4 14:29:20 2015     RE:RE:Hola      Learning about Penguins. you?   mashley310      sotdjin
-3 Contents: Sun Oct 4 14:30:25 2015     RE:RE:RE:Hola   same.   sotdjin mashley310
-4 Contents: Wed Oct  7 08:22:58 2015    RE: test        test    sotdjin admin
-5 Contents: Wed Oct  7 08:29:14 2015    all the test    lalala  sotdjin admin
-6 Contents: Wed Oct  7 08:29:48 2015    test:test       hey     sotdjin admin
-7 Contents: Wed Oct  7 08:33:30 2015    RE: RE: test    bleh    admin   sotdjin
-8 Contents: Wed Oct  7 08:39:16 2015    asdf    asdjf;lkj       sotdjin admin
-9 Contents: Wed Oct  7 09:11:41 2015    hi      hi test sotdjin admin
-10 Contents: Wed Oct  7 09:20:07 2015   RE: Hola        testingawadwa   sotdjin mashley310
-Message sent. Enter any character to return to menu: d
-
-Welcome to your inbox! You have the following messages:
-
-;
-------------------------------------------------------------
-Relation: printable
-
-(time, subject, sent_by)
-
-(Sun Oct 4 13:23:11 2015, Hola, mashley310)
-(Sun Oct 4 14:29:20 2015, RE:RE:Hola, mashley310)
-(Wed Oct  7 08:33:30 2015, RE: RE: test, admin)
-
-------------------------------------------------------------
-
-
-What would you like to do?
-        1. Open a message
-        2. Reply to a message
-        3. Write a new message
-        4. Delete a message
-        5. Return to main menu
-
-Please enter your choice: 1
-Enter the subject of the message you'd like to open: Hola
-
-------------------------------------------------------------
-Relation: printable
-
-(time, sent_by, content)
-
-(Sun Oct 4 13:23:11 2015, mashley310, Hey, what's up?)
-
-------------------------------------------------------------
-
-Enter any character to return to inbox: d
-
-Welcome to your inbox! You have the following messages:
-
-;
-------------------------------------------------------------
-Relation: printable
-
-(time, subject, sent_by)
-
-(Sun Oct 4 13:23:11 2015, Hola, mashley310)
-(Sun Oct 4 14:29:20 2015, RE:RE:Hola, mashley310)
-(Wed Oct  7 08:33:30 2015, RE: RE: test, admin)
-
-------------------------------------------------------------
-
-
-What would you like to do?
-        1. Open a message
-        2. Reply to a message
-        3. Write a new message
-        4. Delete a message
-        5. Return to main menu
-
-Please enter your choice: 5
-*****************
-**  MAIN MENU  **
-*****************
-
-
-------------------------------------------------------------
-Relation: menu_to_show
-
-(menu_number, menu_title)
-
-(1, My Account)
-(2, Boards)
-(3, Messages)
-(4, Groups)
-(5, All the cool people)
-
-------------------------------------------------------------
-
-Q. Quit
-
-Please enter a choice: 4
-
-------------------------------------------------------------
-Relation: crossed
-
-(number, name, description, active, group, approved)
-
-(1, Penguins from Certain Places, Here we talk about the penguins of each continent, 1, 2, 1)
-(2, Cute Penguin Pics, All the Cute penguin pics. All the time., 1, 2, 1)
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-Relation: list
-
-(number, name, description, active, group, approved)
-
-(2, Cute Penguin Pics, All the Cute penguin pics. All the time., 1, 2, 1)
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-Relation: Your_Groups
-
-(number, name, description, approved)
-
-(2, Cute Penguin Pics, All the Cute penguin pics. All the time., 1)
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-Relation: Groups_You_Manage
-
-(number, name, description, active)
-
-
-------------------------------------------------------------
-
-
-What would you like to do?
-        1. Open a group board
-        2. Request membership in a group
-        3. Leave a group
-        8. Return to the main menu
-Please enter your menu choice: 1
-What group would you like to open? Please enter the number: 2
-******************
-**  BOARD MENU  **
-******************
-
-1. List Boards
-2. Go to a specific board
-G. Back to the Group Menu
-M. Back to the Main Menu
-
-Please enter a choice: 1
-******************
-**  BOARD LIST  **
-******************
-
-
-------------------------------------------------------------
-Relation: show_boards
-
-(board_number, board_name)
-
-(1, Penguins of FB)
-
-------------------------------------------------------------
-
-M. Back to the Main Menu
-B. Back to the Board Menu
-
-Please enter a choice: 1
-------------------------------------
-
-------------------------------------------------------------
-Relation: board_to_display
-
-(board_name)
-
-(Penguins of FB)
-
-------------------------------------------------------------
-
-------------------------------------
-
-------------------------------------------------------------
-Relation: final_articles
-
-(number, author, time, title)
-
-
-------------------------------------------------------------
-
-s. Search articles (by username)
-A. Add an Article
-D. Delete an Article
-num. Select numbered article to read
-
-M. Back the Main Menu
-B. Back to the Board Menu
-Please enter your choice: A
-Please enter a title for the article: test article
-Please enter the contents for the article: testing
-------------------------------------
-
-------------------------------------------------------------
-Relation: board_to_display
-
-(board_name)
-
-(Penguins of FB)
-
-------------------------------------------------------------
-
-------------------------------------
-
-------------------------------------------------------------
-Relation: final_articles
-
-(number, author, time, title)
-
-(6, sotdjin, Wed Oct  7 09:21:07 2015, test article)
-
-------------------------------------------------------------
-
-s. Search articles (by username)
-A. Add an Article
-D. Delete an Article
-num. Select numbered article to read
-
-M. Back the Main Menu
-B. Back to the Board Menu
-Please enter your choice: M
-*****************
-**  MAIN MENU  **
-*****************
-
-
-------------------------------------------------------------
-Relation: menu_to_show
-
-(menu_number, menu_title)
-
-(1, My Account)
-(2, Boards)
-(3, Messages)
-(4, Groups)
-(5, All the cool people)
-
-------------------------------------------------------------
-
-Q. Quit
-
-Please enter a choice: 5
-
-------------------------------------------------------------
-Relation: all_users
-
-(username)
-
-(admin)
-(mashley310)
-(Phamu)
-(samerfarqui)
-(dpcross)
-(mpoppins)
-
-------------------------------------------------------------
-
-Enter M to go back to the main menu: M
-*****************
-**  MAIN MENU  **
-*****************
-
-
-------------------------------------------------------------
-Relation: menu_to_show
-
-(menu_number, menu_title)
-
-(1, My Account)
-(2, Boards)
-(3, Messages)
-(4, Groups)
-(5, All the cool people)
-
-------------------------------------------------------------
-
-Q. Quit
-
-Please enter a choice: Q
-
-Welcome to the Awesome Penguin message boards! What would you like to do?
-
-1. Log in
-2. Create new Account
-3. Exit
-
-Please enter your choice: 1
-
-Please enter your login information below
-
-username: admin
-password: password0
-
-Invalid username or password.
-Would you like to:
-        1. Try again
-        2. Create a new account
-        3. Return to menu?
-
-Please enter your choice: 1
-
-Please enter your login information below
-
-username: admin
-password: Password0
-
-Invalid username or password.
-Would you like to:
-        1. Try again
-        2. Create a new account
-        3. Return to menu?
-
-Please enter your choice: 1
-
-Please enter your login information below
-
-username: admin
-password: password
-*****************
-**  MAIN MENU  **
-*****************
-
-
-------------------------------------------------------------
-Relation: menu_to_show
-
-(menu_number, menu_title)
-
-(1, My Account)
-(2, Boards)
-(3, Messages)
-(4, Groups)
-(5, All the cool people)
-
-------------------------------------------------------------
-
-A. Admin Menu
-Q. Quit
-
-Please enter a choice: A
-****************
-** ADMIN MENU **
-****************
-
-1. Account Management
-2. Main Menu Management
-3. Board Management
-4. Board Navigation
-5. Article Management
-6. User Management
-7. Message Management
-8. Log Management
-9. Approve Users
-0. Edit Groups
-M. Back to the Main Menu
-Please enter your choice: 8
-
-LOGIN LOG
-
-
-------------------------------------------------------------
-Relation: logs_to_show
-
-(time, username)
-
-(Wed Oct  7 02:52:35 2015, mashley310)
-(Wed Oct  7 02:57:34 2015, admin)
-(Wed Oct  7 02:59:01 2015, admin)
-(Wed Oct  7 03:00:44 2015, admin)
-(Wed Oct  7 03:02:06 2015, admin)
-(Wed Oct  7 03:06:48 2015, admin)
-(Wed Oct  7 03:08:20 2015, admin)
-(Wed Oct  7 03:12:57 2015, admin)
-(Wed Oct  7 03:16:16 2015, admin)
-(Wed Oct  7 03:17:33 2015, admin)
-(Wed Oct  7 03:20:21 2015, admin)
-(Wed Oct  7 03:20:55 2015, mashley310)
-(Wed Oct  7 03:22:12 2015, mashley310)
-(Wed Oct  7 03:23:48 2015, mashley310)
-(Wed Oct  7 03:59:30 2015, mashley310)
-(Wed Oct  7 04:02:12 2015, mashley310)
-(Wed Oct  7 04:03:47 2015, mashley310)
-(Wed Oct  7 04:10:40 2015, mashley310)
-(Wed Oct  7 04:12:43 2015, mashley310)
-(Wed Oct  7 04:13:06 2015, mashley310)
-(Wed Oct  7 04:13:53 2015, mashley310)
-(Wed Oct  7 04:15:34 2015, mashley310)
-(Wed Oct  7 04:15:57 2015, admin)
-(Wed Oct  7 04:19:39 2015, admin)
-(Wed Oct  7 04:24:21 2015, admin)
-(Wed Oct  7 04:25:13 2015, admin)
-(Wed Oct  7 04:29:13 2015, admin)
-(Wed Oct  7 04:36:13 2015, admin)
-(Wed Oct  7 04:39:13 2015, admin)
-(Wed Oct  7 04:49:44 2015, admin)
-(Wed Oct  7 04:53:50 2015, admin)
-(Wed Oct  7 04:54:34 2015, mashley310)
-(Wed Oct  7 05:06:29 2015, admin)
-(Wed Oct  7 05:06:53 2015, mashley310)
-(Wed Oct  7 05:08:24 2015, mashley310)
-(Wed Oct  7 05:10:50 2015, mashley310)
-(Wed Oct  7 05:15:54 2015, mashley310)
-(Wed Oct  7 05:17:35 2015, mashley310)
-(Wed Oct  7 05:24:38 2015, mashley310)
-(Wed Oct  7 05:27:02 2015, mashley310)
-(Wed Oct  7 05:29:11 2015, mashley310)
-(Wed Oct  7 05:29:41 2015, admin)
-(Wed Oct  7 05:31:35 2015, mashley310)
-(Wed Oct  7 05:32:24 2015, admin)
-(Wed Oct  7 05:36:15 2015, admin)
-(Wed Oct  7 05:58:43 2015, admin)
-(Wed Oct  7 06:01:41 2015, admin)
-(Wed Oct  7 06:02:11 2015, mashley310)
-(Wed Oct  7 06:02:39 2015, admin)
-(Wed Oct  7 06:03:49 2015, mashley310)
-(Wed Oct  7 06:07:19 2015, admin)
-(Wed Oct  7 06:08:14 2015, mashley310)
-(Wed Oct  7 06:12:59 2015, mashley310)
-(Wed Oct  7 06:14:19 2015, admin)
-(Wed Oct  7 06:15:02 2015, mashley310)
-(Wed Oct  7 06:20:31 2015, mashley310)
-(Wed Oct  7 06:23:34 2015, mashley310)
-(Wed Oct  7 06:26:09 2015, mashley310)
-(Wed Oct  7 06:31:40 2015, mashley310)
-(Wed Oct  7 06:32:20 2015, mashley310)
-(Wed Oct  7 06:35:16 2015, mashley310)
-(Wed Oct  7 06:37:22 2015, mashley310)
-(Wed Oct  7 06:38:41 2015, sotdjin)
-(Wed Oct  7 06:39:10 2015, mashley310)
-(Wed Oct  7 06:39:37 2015, sotdjin)
-(Wed Oct  7 06:41:11 2015, mashley310)
-(Wed Oct  7 06:43:25 2015, mashley310)
-(Wed Oct  7 06:44:14 2015, sotdjin)
-(Wed Oct  7 06:45:25 2015, admin)
-(Wed Oct  7 06:49:10 2015, mashley310)
-(Wed Oct  7 06:49:27 2015, admin)
-(Wed Oct  7 06:52:37 2015, admin)
-(Wed Oct  7 07:04:54 2015, admin)
-(Wed Oct  7 07:08:18 2015, admin)
-(Wed Oct  7 07:11:51 2015, admin)
-(Wed Oct  7 07:12:52 2015, admin)
-(Wed Oct  7 07:17:52 2015, admin)
-(Wed Oct  7 07:19:25 2015, admin)
-(Wed Oct  7 07:21:26 2015, admin)
-(Wed Oct  7 07:26:24 2015, admin)
-(Wed Oct  7 07:35:02 2015, admin)
-(Wed Oct  7 07:35:57 2015, admin)
-(Wed Oct  7 07:36:54 2015, dpcross)
-(Wed Oct  7 07:37:03 2015, admin)
-(Wed Oct  7 07:37:35 2015, admin)
-(Wed Oct  7 07:38:49 2015, admin)
-(Wed Oct  7 07:40:40 2015, admin)
-(Wed Oct  7 07:41:13 2015, mpoppins)
-(Wed Oct  7 07:41:18 2015, admin)
-(Wed Oct  7 07:41:48 2015, mpoppins)
-(Wed Oct  7 07:41:53 2015, admin)
-(Wed Oct  7 07:42:59 2015, admin)
-(Wed Oct  7 07:45:53 2015, admin)
-(Wed Oct  7 07:48:05 2015, admin)
-(Wed Oct  7 07:48:29 2015, sotdjin)
-(Wed Oct  7 07:49:09 2015, admin)
-(Wed Oct  7 07:52:04 2015, sotdjin)
-(Wed Oct  7 07:53:53 2015, sotdjin)
-(Wed Oct  7 07:55:39 2015, sotdjin)
-(Wed Oct  7 07:57:57 2015, sotdjin)
-(Wed Oct  7 07:58:17 2015, admin)
-(Wed Oct  7 08:00:27 2015, sotdjin)
-(Wed Oct  7 08:03:12 2015, sotdjin)
-(Wed Oct  7 08:03:37 2015, admin)
-(Wed Oct  7 08:05:55 2015, sotdjin)
-(Wed Oct  7 08:07:01 2015, sotdjin)
-(Wed Oct  7 08:07:24 2015, admin)
-(Wed Oct  7 08:10:10 2015, sotdjin)
-(Wed Oct  7 08:11:10 2015, sotdjin)
-(Wed Oct  7 08:13:35 2015, sotdjin)
-(Wed Oct  7 08:14:52 2015, sotdjin)
-(Wed Oct  7 08:17:08 2015, sotdjin)
-(Wed Oct  7 08:21:39 2015, sotdjin)
-(Wed Oct  7 08:22:47 2015, sotdjin)
-(Wed Oct  7 08:24:37 2015, admin)
-(Wed Oct  7 08:26:24 2015, admin)
-(Wed Oct  7 08:28:56 2015, sotdjin)
-(Wed Oct  7 08:30:35 2015, admin)
-(Wed Oct  7 08:33:17 2015, admin)
-(Wed Oct  7 08:35:09 2015, sotdjin)
-(Wed Oct  7 08:36:12 2015, admin)
-(Wed Oct  7 08:39:00 2015, sotdjin)
-(Wed Oct  7 08:39:40 2015, admin)
-(Wed Oct  7 08:42:55 2015, sotdjin)
-(Wed Oct  7 08:43:22 2015, admin)
-(Wed Oct  7 08:44:48 2015, admin)
-(Wed Oct  7 08:45:12 2015, mpoppins)
-(Wed Oct  7 08:50:42 2015, admin)
-(Wed Oct  7 08:55:14 2015, sotdjin)
-(Wed Oct  7 08:58:09 2015, sotdjin)
-(Wed Oct  7 08:59:14 2015, admin)
-(Wed Oct  7 09:00:04 2015, sotdjin)
-(Wed Oct  7 09:01:20 2015, admin)
-(Wed Oct  7 09:04:07 2015, admin)
-(Wed Oct  7 09:04:30 2015, admin)
-(Wed Oct  7 09:10:17 2015, sotdjin)
-(Wed Oct  7 09:12:50 2015, admin)
-(Wed Oct  7 09:18:41 2015, sotdjin)
-(Wed Oct  7 09:21:39 2015, admin)
-
-------------------------------------------------------------
-
-
-Enter 'A' to go back to the Admin Menu or
-Enter the exact word-for-word time to delete item: A
-****************
-** ADMIN MENU **
-****************
-
-1. Account Management
-2. Main Menu Management
-3. Board Management
-4. Board Navigation
-5. Article Management
-6. User Management
-7. Message Management
-8. Log Management
-9. Approve Users
-0. Edit Groups
-M. Back to the Main Menu
-Please enter your choice: 5
-ARTICLE MANAGEMENT
-1. Create a new article
-2. Edit an existing article
-3. Delete an existing article
-A. Back to Admin Menu
-Please enter your choice: 2
-
-------------------------------------------------------------
-Relation: view_articles
-
-(number, time, title)
-
-(1, Wed Oct  7 08:51:41 2015, Penguins Test)
-(2, Wed Oct  7 08:55:45 2015, Penguins Again!)
-(4, Wed Oct  7 08:59:39 2015, More Cool Penguins)
-(5, Wed Oct  7 09:11:03 2015, Please don't break)
-(3, Wed Oct  7 09:19:38 2015, testing for meeee)
-(6, Wed Oct  7 09:21:07 2015, test article)
-
-------------------------------------------------------------
-
-
-Please enter the article number to be edited: 6
-Please choose what to change
-1. Title
-2. Content
-3. Board
-Please enter your choice: 1
-Please enter new title: Don't break
-ARTICLE MANAGEMENT
-1. Create a new article
-2. Edit an existing article
-3. Delete an existing article
-A. Back to Admin Menu
-Please enter your choice: 2
-
-------------------------------------------------------------
-Relation: view_articles
-
-(number, time, title)
-
-(1, Wed Oct  7 08:51:41 2015, Penguins Test)
-(2, Wed Oct  7 08:55:45 2015, Penguins Again!)
-(4, Wed Oct  7 08:59:39 2015, More Cool Penguins)
-(5, Wed Oct  7 09:11:03 2015, Please don't break)
-(3, Wed Oct  7 09:19:38 2015, testing for meeee)
-(6, Wed Oct  7 09:21:07 2015, test article)
-
-------------------------------------------------------------
-
-
-Please enter the article number to be edited: 5
-Please choose what to change
-1. Title
-2. Content
-3. Board
-Please enter your choice: 1
-Please enter new title: testing again
-ARTICLE MANAGEMENT
-1. Create a new article
-2. Edit an existing article
-3. Delete an existing article
-A. Back to Admin Menu
-Please enter your choice: A
-****************
-** ADMIN MENU **
-****************
-
-1. Account Management
-2. Main Menu Management
-3. Board Management
-4. Board Navigation
-5. Article Management
-6. User Management
-7. Message Management
-8. Log Management
-9. Approve Users
-0. Edit Groups
-M. Back to the Main Menu
-Please enter your choice: M
-*****************
-**  MAIN MENU  **
-*****************
-
-
-------------------------------------------------------------
-Relation: menu_to_show
-
-(menu_number, menu_title)
-
-(1, My Account)
-(2, Boards)
-(3, Messages)
-(4, Groups)
-(5, All the cool people)
-
-------------------------------------------------------------
-
-A. Admin Menu
-Q. Quit
-
-Please enter a choice: 2
-******************
-**  BOARD MENU  **
-******************
-
-1. List Boards
-2. Go to a specific board
-M. Back to the Main Menu
-
-Please enter a choice: 1
-******************
-**  BOARD LIST  **
-******************
-
-
-------------------------------------------------------------
-Relation: show_boards
-
-(board_number, board_name)
-
-(2, Penguins of the World)
-
-------------------------------------------------------------
-
-M. Back to the Main Menu
-B. Back to the Board Menu
-
-Please enter a choice: 2
-------------------------------------
-
-------------------------------------------------------------
-Relation: board_to_display
-
-(board_name)
-
-(Penguins of the World)
-
-------------------------------------------------------------
-
-------------------------------------
-
-------------------------------------------------------------
-Relation: final_articles
-
-(number, author, time, title)
-
-(1, admin, Wed Oct  7 08:51:41 2015, Penguins Test)
-(2, sotdjin, Wed Oct  7 08:55:45 2015, Penguins Again!)
-(4, admin, Wed Oct  7 08:59:39 2015, More Cool Penguins)
-(5, sotdjin, Wed Oct  7 09:11:03 2015, testing again)
-(3, sotdjin, Wed Oct  7 09:19:38 2015, testing for meeee)
-
-------------------------------------------------------------
-
-s. Search articles (by username)
-A. Add an Article
-D. Delete an Article
-num. Select numbered article to read
-
-M. Back the Main Menu
-B. Back to the Board Menu
-Please enter your choice: M
-*****************
-**  MAIN MENU  **
-*****************
-
-
-------------------------------------------------------------
-Relation: menu_to_show
-
-(menu_number, menu_title)
-
-(1, My Account)
-(2, Boards)
-(3, Messages)
-(4, Groups)
-(5, All the cool people)
-
-------------------------------------------------------------
-
-A. Admin Menu
-Q. Quit
-
-Please enter a choice: Q
-
-Welcome to the Awesome Penguin message boards! What would you like to do?
-
-1. Log in
-2. Create new Account
-3. Exit
-
-Please enter your choice: 3
-
-Thank you for visiting! Come again!
+      name      mascot   conquests
+---------------------------------------
+       Bob    sad face           0
+       Joe    sad face           0
+      Davy     octopus         345
