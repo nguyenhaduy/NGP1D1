@@ -3,9 +3,10 @@ CSCE 315 Project 1 Second delieverable
 Relation Database Management System
 
 Group Member
-\n1. Wesley Ng
-\n2. Duy Nguyen
-\n3. Muhammad S Faruqui
+
+1. Wesley Ng
+2. Duy Nguyen
+3. Muhammad S Faruqui
 
 How to compile the project:
 From the source folder run the makefile to compile every files
