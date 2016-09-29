@@ -1,6 +1,7 @@
+#include "DB_Set.h"
 #include "DB_Engine.h"
 #include "Relation_Ops.h"
-//#include "Parser.h"
+#include "Parser.h"
 #include <fstream>
 #include <iostream>
 #include <iomanip>
@@ -9,13 +10,43 @@ bool DB_Engine::exit = true;
 
 Table* DB_Engine::open_relation(string filename)
 {
-	//write when have working parser
-  
-  /*will read document, transfer to relation, append the word "open"
-  to the end of the file, then close the file. If the word "open"
-  is found at the end of the file returns an error or something.*/
-  
-  //make sure to put relations on the heap so they can be passed out
+	ifstream fs;
+	ofstream ofs;
+	fs.open(filename);
+	if(!fs.is_open())
+	{
+		cerr << "File " << filename << " does not exit" << endl;
+		return nullptr;
+	}
+	string tmp, file;
+	while(fs)
+	{
+		if(tmp=="open")
+		{
+			cerr<< "File " << filename << " is already open" <<endl;
+			return nullptr;
+		}
+		else
+		{
+			getline(fs, tmp);
+			file.append(tmp);
+		}
+	}
+
+	fs.close();
+	
+	DB_Set p;
+	
+	p.input(file);
+	
+	file.append("\nopen\n");
+	
+	ofs.open(filename);
+	ofs<<file;
+	ofs.close();
+	
+	DB_Engine::set_exit(false);
+	return p.get_last();
 }
 void DB_Engine::close_relation(Table* relation, string filename)
 //write to file without word "open" at end of file
