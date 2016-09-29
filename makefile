@@ -15,11 +15,7 @@ Table.o: Table.cpp Tuple.o Condition.o
 	$(CC) $(DFLAGS) -c $< -o $@
 Relation_Ops.o: Relation_Ops.cpp Table.cpp Attribute.o Condition.o
 	$(CC) $(DFLAGS) -c $< -o $@
-Parser.o: Parser.cpp Table.cpp Attribute.o Condition.o
-	$(CC) $(DFLAGS) -c $< -o $@
 DB_Engine.o: DB_Engine.cpp Table.o Attribute.o Condition.o
-	$(CC) $(DFLAGS) -c $< -o $@
-DB_Set.o: DB_Set.cpp Relation_Ops.o Parser.o DB_Engine.o Condition.o Table.cpp Attribute.o Condition.o
 	$(CC) $(DFLAGS) -c $< -o $@
 main.o: main.cpp
 	$(CC) $(DFLAGS) -c $< -o $@
