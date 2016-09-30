@@ -64,15 +64,17 @@ void make_relation(){
 }
 
 
-TEST_CASE( "Test DBEngine Create Table")
+TEST_CASE( "Test Making Relation")
 {
 	make_relation();
-	DB_Engine *engine = new DB_Engine();
+	REQUIRE (relation->get_Name() == "Pirates");
+	REQUIRE (relation->get_Template_Tuple().get_Attribute == 3);
+}
 
-    engine->create_relation("Clients", Tuple());
-	cout<<relation->get_Name();
-	
-	//REQUIRE (relation->size() == 1);
-//	REQUIRE (relation->get_Name() == "Clients");
-	
+TEST_CASE( "Test Creating Table")
+{
+	make_relation();
+	Table* relation2 = DB_Engine::create_relation("Pirates2",templ);
+	DB_Engine::show(*relation2);
+	REQUIRE (relation2->get_Name() == "Pirates2");
 }
