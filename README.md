@@ -17,8 +17,8 @@ How to compile the project: <br />
 	From the source folder run the makefile to compile every files. <br />
 	After finish compiling, run the main.out to start the test program. <br />
 	
-	Altenately you can use g++ -sdt=c++11 to manually compile every single *.cpp file and link them with the tests you want to run. <br />
-	Run the a.out to execute the test program. <br />
+	Altenately you can use g++ -sdt=c++11 to manually compile every single *.cpp file and link them with the tests you want to run. 
+	Run the a.out to execute the test program. 
 
 
 Unit tests: <br />
