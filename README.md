@@ -2,11 +2,13 @@
 CSCE 315 Project 1 Second delieverable
 Relation Database Management System
 
+
 Group Member
 
 1. Wesley Ng
 2. Duy Nguyen
 3. Muhammad S Faruqui
+
 
 How to compile the project: <br />
 	There are total 3 tests in the project: Engine Test, Parser Test, and Interpreter Test. <br />
@@ -14,8 +16,10 @@ How to compile the project: <br />
 	Uncomment the test you want to run and comment out the other two. <br />
 	From the source folder run the makefile to compile every files. <br />
 	After finish compiling, run the main.out to start the test program. <br />
+	
 	Altenately you can use g++ -sdt=c++11 to manually compile every single *.cpp file and link them with the tests you want to run. <br />
 	Run the a.out to execute the test program. <br />
+
 
 Unit tests: <br />
 	Test some dummy data to check how the engine function. <br />
