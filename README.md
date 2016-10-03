@@ -36,5 +36,6 @@ Unit tests: <br />
 Parser Unit Tests: <br />
 	- We are taking multiple test cases to check to see if parsing works. <br />
 	- We parse certain commands one by one and have the unit test check to see if the output is equivilent to what we expect <br />
+	- Each command needs to have a semicolon at the end
 	- If not, Catch will tell us which one has errors <br />
 	- We saved some commands in test file so it will make it easier for us to test instead of typing out all the commands. <br />
