@@ -37,10 +37,10 @@ main: interp_main.o parse_test.o engine_test.o Attribute.o Tuple.o Table.o Condi
 #	$(CC) $(DFLAGS) engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
 
 # ==== Test Parser ====
-#	$(CC) $(DFLAGS) parse_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
+	$(CC) $(DFLAGS) parse_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
 
 # ==== Test Interperter ====
-	$(CC) $(DFLAGS) interp_main.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
+#	$(CC) $(DFLAGS) interp_main.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
 
 clean:
 	rm -f *.o
