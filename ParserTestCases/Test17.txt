@@ -1,0 +1,6 @@
+program()
+	command()
+		exit_cmd()
+	program()
+		fail()
+		empty()
