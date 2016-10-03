@@ -33,8 +33,8 @@ Unit tests: <br />
 		- Inserting, updating, and deleting records in a table <br />
 		- Show content of a table <br />
 		- 
-Parser Unit Tests:
-	We are taking multiple test cases to check to see if parsing works.
-	We parse certain commands one by one and have the unit test check to see if the output is equivilent to what we expect
-	If not, Catch will tell us which one has errors
-	We saved some commands in test file so it will make it easier for us to test instead of typing out all the commands.
+Parser Unit Tests: <br />
+	We are taking multiple test cases to check to see if parsing works. <br />
+	We parse certain commands one by one and have the unit test check to see if the output is equivilent to what we expect <br />
+	If not, Catch will tell us which one has errors <br />
+	We saved some commands in test file so it will make it easier for us to test instead of typing out all the commands. <br />
