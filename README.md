@@ -17,7 +17,7 @@ How to compile the project: <br />
 	From the source folder run the makefile to compile every files. <br />
 	After finish compiling, run the main.out to start the test program. <br />
 	
-	Altenately you can use g++ -sdt=c++11 to manually compile every single *.cpp file and link them with the tests you want to run. 
+	Altenately you can use g++ -std=c++11 to manually compile every single *.cpp file and link them with the tests you want to run. 
 	Run the a.out to execute the test program. 
 	This can be run on compute.cse.tamu.edu
 
@@ -37,4 +37,5 @@ Parser Unit Tests: <br />
 	- We are taking multiple test cases to check to see if parsing works. <br />
 	- We parse certain commands one by one and have the unit test check to see if the output is equivilent to what we expect <br />
 	- If not, Catch will tell us which one has errors <br />
-	- We saved some commands in test file so it will make it easier for us to test instead of typing out all the commands. <br />
+	- Each command needs to have a semicolon at the end <br />
+	- We saved some commands in text file so it will make it easier for us to test instead of typing out all the commands. <br />
