@@ -11,9 +11,9 @@ Group Member
 
 
 How to compile the project: <br />
-	There are total 3 tests in the project: Engine Test, Parser Test, and Interpreter Test. <br />
-	To chose which test you want to run, open the makefile. You will see 3 tested are listed at the bottom of the makefile. <br />
-	Uncomment the test you want to run and comment out the other two. <br />
+	There are total 4 tests in the project: Engine Test, Parser Test, Unit Parser Test, and Interpreter Test. <br />
+	To chose which test you want to run, open the makefile. You will see 4 tested are listed at the bottom of the makefile. <br />
+	Uncomment the test you want to run and comment out the other 3. <br />
 	From the source folder run the makefile to compile every files. <br />
 	After finish compiling, run the main.out to start the test program. <br />
 	
