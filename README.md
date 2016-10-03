@@ -19,6 +19,7 @@ How to compile the project: <br />
 	
 	Altenately you can use g++ -sdt=c++11 to manually compile every single *.cpp file and link them with the tests you want to run. 
 	Run the a.out to execute the test program. 
+	This can be run on compute.cse.tamu.edu
 
 
 Unit tests: <br />
