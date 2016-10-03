@@ -27,6 +27,8 @@ parse_test.o: parse_test.cpp
 	$(CC) $(DFLAGS) -c $< -o $@
 interp_main.o: interp_main.cpp
 	$(CC) $(DFLAGS) -c $< -o $@
+UnitTestParser.o: UnitTestParser.cpp
+	$(CC) $(DFLAGS) -c $< -o $@
 
 
 # ==== MAIN FILE ====
@@ -38,6 +40,9 @@ main: interp_main.o parse_test.o engine_test.o Attribute.o Tuple.o Table.o Condi
 
 # ==== Test Parser ====
 #	$(CC) $(DFLAGS) parse_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
+
+# ==== Unit Test Parser ====
+#	$(CC) $(DFLAGS) UnitTestParser.o Parser.o -o main.out
 
 # ==== Test Interperter ====
 	$(CC) $(DFLAGS) interp_main.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
