@@ -209,3 +209,34 @@ TEST_CASE( "Test Project From Relation2")
 	REQUIRE (check_tuple[0] == tuple_check);
 }
 
+TEST_CASE( "Test Rename Attributes")
+{
+	// renaming name and mascot in relation
+	vector<string> attributes;
+  	attributes.push_back("name");
+  	attributes.push_back("mascot");
+	vector<string> new_names;
+  	new_names.push_back("Pirate Name");
+  	new_names.push_back("Flag");
+  	Relation_Ops::rename(attributes, new_names, relation);
+
+  	Attribute name, mascot, conquests;
+	vector<Attribute> templ_attr;
+
+	name = Attribute("", true, "name", 10);
+	mascot = Attribute("", false, "mascot", 10);
+  	conquests = Attribute(-99, false, "conquests");
+	templ_attr.push_back(name);
+	templ_attr.push_back(mascot);
+  	templ_attr.push_back(conquests);
+	Tuple templ_check(templ_attr);
+	vector<Tuple> check_tuple;
+	check_tuple = relation->get_Tuples();
+
+	REQUIRE (relation->get_Name() == "Pirates");
+	REQUIRE (relation->get_Template_Tuple() == templ_check);
+	REQUIRE (check_tuple.size() == 3);
+	REQUIRE (check_tuple[0] == tuple0);
+	REQUIRE (check_tuple[1] == tuple1);
+	REQUIRE (check_tuple[2] == tuple2);
+}

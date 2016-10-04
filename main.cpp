@@ -105,6 +105,12 @@ int main()
   new_names.push_back("Pirate Name");
   new_names.push_back("Flag");
   Relation_Ops::rename(attributes, new_names, relation);
+  Tuple templ_check = relation->get_Template_Tuple();
+  std::vector<Attribute> tempatt = templ_check.get_Attributes();
+  cout << tempatt[0].get_Int_Value() << endl;
+  cout << tempatt[0].is_Primary() << endl;
+  cout << tempatt[0].get_Int_Value() << endl;
+  cout << tempatt[0].get_Int_Value() << endl;  
   DB_Engine::show(*relation);
   
   //reset relation
