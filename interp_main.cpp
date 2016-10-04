@@ -27,7 +27,7 @@ int main()
   {
     cout<<">> ";
     getline(cin, input);
-    
+
     //trim off whitespace at begginning
     while(input[0] == ' ')
     {
@@ -48,11 +48,12 @@ int main()
       }
       else
       {
+        string file_input;
         while(getline(file, line))
         {
-          if(line != "")
-			db_set.input(line);
+          file_input = file_input + '\n' + line;
         }
+        db_set.input(file_input);
       }
 	  
 	  DB_Engine::set_exit(false);
@@ -60,6 +61,11 @@ int main()
     //parse input from command line
     else
     {
+      while (input[input.size()-1] != ';')
+      {
+        getline(cin, line);
+        input = input + '\n' + line;
+      }
       db_set.input(input);
     }
   }
