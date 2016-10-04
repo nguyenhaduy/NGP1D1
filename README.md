@@ -11,16 +11,17 @@ Group Member
 
 
 How to compile the project: <br />
+	The project can be run on compute.cs.tamu.edu <br />
 	There are total 4 tests in the project: Engine Test, Parser Test, Unit Parser Test, and Interpreter Test. <br />
-	To chose which test you want to run, open the makefile. You will see 4 tested are listed at the bottom of the makefile. <br />
-	Uncomment the test you want to run and comment out the other 3. <br />
-	From the source folder run the makefile to compile every files. <br />
-	After finish compiling, run the main.out to start the test program. <br />
+	To compile the test, simply just run the makefile.<br />
+	To start the Engine Test, run EngineTest.out. <br />
+	To start the Parser Test, run ParserTest.out. <br />
+	To start the Parser Unit Test, run UnitTestParser.out. <br />
+	To start the Interperter Test, run main.out. <br />
 	
 	Altenately you can use g++ -std=c++11 to manually compile every single *.cpp file and link them with the tests you want to run. 
 	Run the a.out to execute the test program. 
-	This can be run on compute.cse.tamu.edu
-
+	
 
 Unit tests: <br />
 	Test some dummy data to check how the engine function. <br />
