@@ -317,7 +317,7 @@ vector<string> Parser::lex()
 			}
 			words.push_back(word.str());
 		}
-		else if (tmp == ' ' || tmp == '\n'){}
+		else if (tmp == ' ' || tmp == '\n' || tmp == '\t'|| tmp == '\r' || tmp == '\r\n'){}
 		else
 		{
 			words = vector<string>(0);
@@ -726,7 +726,7 @@ token Parser::close_cmd_parse(vector<string>& lexed, int& i)
 token Parser::save_cmd_parse(vector<string>& lexed, int& i)
 {
 	int original_pos = i;
-	string str1[] = { "save" };
+	string str1[] = { "write" };
 	if (word_parse(lexed, str1, i, 1))
 	{
 		token id = identifier_parse(lexed, i);

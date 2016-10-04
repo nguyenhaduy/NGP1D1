@@ -33,19 +33,19 @@ UnitTestParser.o: UnitTestParser.cpp
 
 # ==== MAIN FILE ====
 	
-main: interp_main.o parse_test.o engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o 
+main: interp_main.o parse_test.o engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o UnitTestParser.o
 
 # ==== Test Engine ====
-#	$(CC) $(DFLAGS) engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
+	$(CC) $(DFLAGS) engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o EngineTest.out
 
 # ==== Test Parser ====
-#	$(CC) $(DFLAGS) parse_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
+	$(CC) $(DFLAGS) parse_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o ParserTest.out
 
 # ==== Unit Test Parser ====
-#	$(CC) $(DFLAGS) UnitTestParser.o Parser.o -o main.out
+	$(CC) $(DFLAGS) UnitTestParser.o Parser.o -o UnitParserTest.out
 
 # ==== Test Interperter ====
 	$(CC) $(DFLAGS) interp_main.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
 
 clean:
-	rm -f *.o
+	rm -f *.o *.out

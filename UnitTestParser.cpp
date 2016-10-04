@@ -52,7 +52,7 @@ TEST_CASE("close close_cmd_test;")
 	REQUIRE (result == "program()\n\tcommand()\n\t\tclose_cmd()\n\t\t\tidentifier(close_cmd_test)\n\tempty()\n");
 }
 
-TEST_CASE("SAVE save_this;")
+TEST_CASE("SAVE \t \n save_this;")
 {
 	std::string result, test;
 	std::stringstream ss;
