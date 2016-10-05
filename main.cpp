@@ -57,6 +57,27 @@ int main()
   templ = Tuple(templ_attr);
   
   relation->insert(templ);
+
+  Tuple templ_check = relation->get_Template_Tuple();
+  std::vector<Attribute> tempatt = templ_check.get_Attributes();
+  cout << tempatt[0].get_String_Value() << endl;
+  cout << tempatt[0].is_Primary() << endl;
+  cout << tempatt[0].get_Name() << endl;
+  cout << tempatt[0].get_Length() << endl;
+  cout << tempatt[0].get_Int_Value() << endl << endl; 
+
+
+  cout << tempatt[1].get_String_Value() << endl;
+  cout << tempatt[1].is_Primary() << endl;
+  cout << tempatt[1].get_Name() << endl;
+  cout << tempatt[1].get_Length() << endl;  
+  cout << tempatt[1].get_Int_Value() << endl << endl; 
+
+  cout << tempatt[2].get_String_Value() << endl;
+  cout << tempatt[2].is_Primary() << endl;
+  cout << tempatt[2].get_Name() << endl;
+  cout << tempatt[2].get_Length() << endl;   
+  cout << tempatt[2].get_Int_Value() << endl << endl; 
   
   //All prints use show function
   cout<<"Print relation\n\n";
@@ -105,12 +126,6 @@ int main()
   new_names.push_back("Pirate Name");
   new_names.push_back("Flag");
   Relation_Ops::rename(attributes, new_names, relation);
-  Tuple templ_check = relation->get_Template_Tuple();
-  std::vector<Attribute> tempatt = templ_check.get_Attributes();
-  cout << tempatt[0].get_Int_Value() << endl;
-  cout << tempatt[0].is_Primary() << endl;
-  cout << tempatt[0].get_Int_Value() << endl;
-  cout << tempatt[0].get_Int_Value() << endl;  
   DB_Engine::show(*relation);
   
   //reset relation

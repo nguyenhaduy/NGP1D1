@@ -19,11 +19,15 @@ DB_Engine.o: DB_Engine.cpp
 	$(CC) $(DFLAGS) -c $< -o $@
 test.o: test.cpp
 	$(CC) $(DFLAGS) -c $< -o $@
+main.o: main.cpp
+	$(CC) $(DFLAGS) -c $< -o $@
 # ==== MAIN FILE ====
 	
-main: Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o test.o
-	$(CC) $(DFLAGS) test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o -o main.out
-
+main: Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o test.o main.o
+# ==== Engine Unit Test ====	
+	$(CC) $(DFLAGS) test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o -o UnitTestEngine.out
+# ==== Engine Test ====	
+	$(CC) $(DFLAGS) main.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o -o main.out
 
 clean:
-	rm -f *.o
+	rm -f *.o *.out
