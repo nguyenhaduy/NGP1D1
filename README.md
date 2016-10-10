@@ -31,8 +31,8 @@ Group Member
 	The client takes care of gathering user input and send it to the server. <br />
 	the server will use the input, directly work with the RDBMS, and return the result to client. <br />
 	<b/>To run the application, open 2 console terminal. <br />
-	Run the server first, type in the port you want to use when the program ask. <br />
-	After that, run the client and type in the same port when the program sak. <br />
+	Run the server first, type in the port you want to use when the program asks. <br />
+	After that, run the client and type in the same port when the program asks. <br />
 	Follow the instruction on the client console to manipulate the database. </b><br />
 	
 
