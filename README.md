@@ -10,7 +10,7 @@ Group Member
 3. Muhammad S Faruqui
 
 
-<b/>How to compile the project:</b> <br />
+<b/><u/>How to compile the project:</u></b> <br />
 	The project can be run on compute.cs.tamu.edu <br />
 	There are total 6program in the project: Engine Test, Parser Test, Unit Parser Test, Interpreter Test, application client, and application server. <br />
 	To compile the test, simply just run the makefile.<br />
@@ -24,19 +24,19 @@ Group Member
 	Altenately you can use g++ -std=c++11 to manually compile every single *.cpp file and link them with the tests you want to run. 
 	Run the a.out to execute the test program. 
 	
-<b/>Application:</b> <br />
+<b/><u/>Application:</b></u> <br />
 	This application is a simple banking application that allow adimistrator to modify user's info, user's accout, and user's transatrions. <br />
 	This application can do the following function: Create New User, Create New Bank Account for User (Debit or Credit), Make Transaction (Deposit or Withdraw), Delete User, Delete User's Account, Delete User's Transaction History, View User's Basic Information, View User's Account Information, View User's Transaction History. <br />
 	The application contain the server and the client. Server and client communicate with each other by socket.<br />
 	The client takes care of gathering user input and send it to the server. <br />
 	the server will use the input, directly work with the RDBMS, and return the result to client. <br />
-	To run the application, open 2 console terminal. <br />
+	<b/>To run the application, open 2 console terminal. <br />
 	Run the server first, type in the port you want to use when the program ask. <br />
 	After that, run the client and type in the same port when the program sak. <br />
-	Follow the instruction on the client console to manipulate the database. <br />
+	Follow the instruction on the client console to manipulate the database. </b><br />
 	
 
-<b/>Unit tests:</b> <br />
+<b/><u/>Unit tests:</b></u> <br />
 	Test some dummy data to check how the engine function. <br />
 	The dummy data is about the information of pirates. <br />
 	The attributes are name, mascot, and conquest. <br />
@@ -47,7 +47,7 @@ Group Member
 		- Inserting, updating, and deleting records in a table <br />
 		- Show content of a table <br />
 		
-<b/>Parser Unit Tests:</b> <br />
+<b/><u/>Parser Unit Tests:</b></u><br />
 	- We are taking multiple test cases to check to see if parsing works. <br />
 	- We parse certain commands one by one and have the unit test check to see if the output is equivilent to what we expect <br />
 	- If not, Catch will tell us which one has errors <br />
