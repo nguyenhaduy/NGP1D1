@@ -2,15 +2,6 @@
 
 using namespace std;
 
-void Application_Server::exit(int server)
-{
-
-}
-
-void Application_Server::execute(int server)
-{
-}
-
 void Application_Server::CreateCustomer(int server)
 {
   DB_Set db_set;
@@ -20,19 +11,24 @@ void Application_Server::CreateCustomer(int server)
   string commands = buffer;
   cout << "Parsing commands for CreateCustomer!!!\n";
   db_set.input(commands);
+
+  string result = "Successfully create new user!\n";
+  strncpy(buffer, result.c_str(), sizeof(buffer));
+  send(server, buffer, 1024, 0);    
+  cout <<buffer;
 }
 
 void Application_Server::CreateBankAccount(int server)
 {
   DB_Set db_set;
-  int new_account = 1000000;
+  int new_account = 1000000;  //account number starting at 1000000
   char buffer[1024];
+
   recv(server, buffer, 1024, 0);
   string ss_num = buffer;
   cout << ss_num << endl;
 
   recv(server, buffer, 1024, 0);
-
   string account_type = buffer;
   cout << account_type << endl;
 
@@ -52,7 +48,6 @@ void Application_Server::CreateBankAccount(int server)
     {
       if(!first_loop)
       {
-        // cout<<"\nThat account is taken. Trying to get a different account! ";
         new_account++;
       }
       
@@ -91,8 +86,6 @@ void Application_Server::CreateBankAccount(int server)
     send(server, buffer, 1024, 0);    
     cout <<buffer;
   }
-
-
 }
 
 void Application_Server::MakeTransaction(int server)
@@ -157,7 +150,7 @@ void Application_Server::MakeTransaction(int server)
           "CLOSE accounts;\n"
         );
 
-      time_t raw_time;                    //temp variables to store time info in
+      time_t raw_time;   //temp variables to store time info
       struct tm* usable_time;
       string time_stamp;   
 
@@ -246,7 +239,9 @@ void Application_Server::DeleteCustomer(int server)
       "SHOW customers_ssn;" +
       "CLOSE customers;\n"
     );
+
   Table* customer_table = db_set.get_last();
+  
   if (!customer_table->is_empty()){
 
       Table* relationship_table;

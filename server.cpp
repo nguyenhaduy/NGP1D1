@@ -17,7 +17,7 @@ using namespace std;
 
 int main()
 {
-    /* ---------- INITIALIZING VARIABLES ---------- */
+    /************** INITIALIZING VARIABLES **************/
 
     int client, server;
     int portNum;
@@ -32,8 +32,7 @@ int main()
     cout << "\nWhat port number you want to connect to: ";
     cin >> portNum;
 
-    /* ---------- ESTABLISHING SOCKET CONNECTION ----------*/
-    /* --------------- socket() function ------------------*/
+    /************* ESTABLISHING SOCKET CONNECTION *************/
 
     client = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -51,8 +50,7 @@ int main()
     server_addr.sin_addr.s_addr = htons(INADDR_ANY);
     server_addr.sin_port = htons(portNum);
 
-    /* ---------- BINDING THE SOCKET ---------- */
-    /* ---------------- bind() ---------------- */
+    /************** CONNECTING THE SOCKET ***************/
 
 
     if ((bind(client, (struct sockaddr*)&server_addr,sizeof(server_addr))) < 0) 
@@ -64,8 +62,7 @@ int main()
     size = sizeof(server_addr);
     cout << "=> Looking for clients..." << endl;
 
-    /* ------------- LISTENING CALL ------------- */
-    /* ---------------- listen() ---------------- */
+    /*********** LISTENING CALL FROM CLIENT *************/
 
     listen(client, 1);
 
@@ -73,9 +70,11 @@ int main()
     int clientCount = 1;
     server = accept(client,(struct sockaddr *)&server_addr,&size);
 
-    // first check if it is valid or not
+    // first check if the connection is valid or not
     if (server < 0) 
         cout << "=> Error on accepting..." << endl;
+
+    /*********** PROCESS SIGNAL FROM THE CLIENT *************/
     string input;
     while (server > 0) 
     {
@@ -140,10 +139,11 @@ int main()
         } 
 
 
-        // inet_ntoa converts packet data to IP, which was taken from client
+   /*************** CLOSE CONNECTION ****************/
+
         cout << "\n\n=> Connection terminated with IP " << inet_ntoa(server_addr.sin_addr);
         close(server);
-        cout << "\nGoodbye..." << endl;
+        cout << "\nThank you for using Baking Appliction..." << endl;
         isExit = false;
         exit(1);
     }

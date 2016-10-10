@@ -21,6 +21,7 @@ void Application_Client::main_menu(int client)
 
     cout<< "Press ENTER to continue!\n";
     getchar();
+    
     //print welcome and ask user for menu input
     cout<<"\nWelcome to the Banking Application! What would you like to do?\n";
     cout<<"\n1. Create Customer";
@@ -35,7 +36,6 @@ void Application_Client::main_menu(int client)
     cout<<"\n10. Exit";
     cout<<"\n\nPlease enter your choice: ";
     
-    // getline(cin, input);
     getline(cin, input);
     
     choice = atoi(input.c_str());
@@ -82,7 +82,8 @@ void Application_Client::main_menu(int client)
 
 void Application_Client::CreateCustomer(int client)
 {
-  string full_name;           //stores inputted user data
+  //stores inputted user data
+  string full_name;           
   string ss_num;
   string address, phone_num, date_of_birth;
   cout<<"\nAdding new customer!";
@@ -101,14 +102,17 @@ void Application_Client::CreateCustomer(int client)
   char buffer[1024] = "@CreateCustomer";
   send(client, buffer, 1024, 0);
   string query;
+
   //order of customers is (SSC number, name, address, phone, date of birth)
     query = "OPEN customers;\n" + 
     ("INSERT INTO customers VALUES FROM (\"" + ss_num + "\", \"" + full_name + 
       "\", \"" + address + "\", \"" + phone_num + "\", \"" + date_of_birth + "\");\n" + 
       "CLOSE customers;\n");
-    // query = "OPEN customers;\nCLOSE customers;\n";
     strncpy(buffer, query.c_str(), sizeof(buffer));
   send(client, buffer, 1024, 0);
+
+  recv(client, buffer, 1024, 0);
+  cout << buffer;
 }
 
 void Application_Client::CreateBankAccount(int client)
@@ -164,6 +168,7 @@ void Application_Client::CreateBankAccount(int client)
     send(client, buffer, 1024, 0);
     strncpy(buffer, account_type.c_str(), sizeof(buffer));
     send(client, buffer, 1024, 0);
+
     recv(client, buffer, 1024, 0);
     cout << buffer;
   }
@@ -279,6 +284,7 @@ void Application_Client::DeleteBankAccount(int client)
 
 void Application_Client::DeleteTransaction(int client)
 {
+  //stores inputted user data
   string transaction_ID;
   cout<<"\nDeleting transaction!";
   cout<<"\nWhat transaction ID you want to delete: ";
@@ -311,6 +317,7 @@ void Application_Client::ViewCustomer(int client)
 
 void Application_Client::ViewBankAccount(int client)
 {
+  //stores inputted user data
   string ss_num;
   cout<<"\nView Bank Account's information!";
   cout<<"\nPlease enter customer's information below:\n";
@@ -327,6 +334,7 @@ void Application_Client::ViewBankAccount(int client)
 
 void Application_Client::ViewTransaction(int client)
 {
+  //stores inputted user data
   string ss_num;
   cout<<"\nView Transaction history!";
   cout<<"\nPlease enter customer's information below:\n";

@@ -4,4 +4,5 @@ INSERT INTO customers VALUES FROM ("987-65-4321", "Wesley Ng", "67890 DEF Pkwy, 
 INSERT INTO customers VALUES FROM ("123-98-4567", "Sameer Faruqui", "3456 GHK Rd, College Station, TX, 77000", "456-123-9876", "01 Jan 1990");
 INSERT INTO customers VALUES FROM ("111-11-1111", "abc", "1234 StrView", "111-111-1111", "01 Jan 1990");
 INSERT INTO customers VALUES FROM ("222-22-2222", "xyz", "5678 RiverSide", "222-222-2222", "01 Jan 1990");
+INSERT INTO customers VALUES FROM ("333-33-3333", "HaHa", "333 Three St, ABD, CA, 33333", "333-333-3333", "03 March 1993");
 EXIT;

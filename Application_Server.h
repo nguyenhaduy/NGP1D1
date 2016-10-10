@@ -25,7 +25,6 @@
 class Application_Server
 {	
 public:
-	static void execute(int server); //prints menu, gets user input, and performs approprite action
 	static void CreateCustomer(int server);
 	static void CreateBankAccount(int server);
 	static void MakeTransaction(int server);
@@ -35,5 +34,4 @@ public:
 	static void ViewCustomer(int server);
 	static void ViewBankAccount(int server);
 	static void ViewTransaction(int server);
-	static void exit(int server); //prints exit message and does no further action
 };
