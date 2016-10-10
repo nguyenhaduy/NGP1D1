@@ -1,0 +1,7 @@
+CREATE TABLE customers (social_security_num VARCHAR(12), full_name VARCHAR(20), address VARCHAR(30), phone_number VARCHAR(13), date_of_birth VARCHAR(15)) PRIMARY KEY (social_security_num);
+INSERT INTO customers VALUES FROM ("123-45-6789", "Duy Ha Nguyen", "12345 ABC St, Houston, TX, 77070", "123-456-7890", "01 Jan 1990");
+INSERT INTO customers VALUES FROM ("987-65-4321", "Wesley Ng", "67890 DEF Pkwy, Bryan, TX, 77456", "098-765-4321", "01 Jan 1990");
+INSERT INTO customers VALUES FROM ("123-98-4567", "Sameer Faruqui", "3456 GHK Rd, College Station, TX, 77000", "456-123-9876", "01 Jan 1990");
+INSERT INTO customers VALUES FROM ("111-11-1111", "abc", "1234 StrView", "111-111-1111", "01 Jan 1990");
+INSERT INTO customers VALUES FROM ("222-22-2222", "xyz", "5678 RiverSide", "222-222-2222", "01 Jan 1990");
+EXIT;

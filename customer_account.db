@@ -1,0 +1,12 @@
+CREATE TABLE customer_account (social_security_num VARCHAR(12), account_number INTEGER) PRIMARY KEY (social_security_num);
+INSERT INTO customer_account VALUES FROM ("123-45-6789", 1000000);
+INSERT INTO customer_account VALUES FROM ("987-65-4321", 1000001);
+INSERT INTO customer_account VALUES FROM ("123-98-4567", 1000002);
+INSERT INTO customer_account VALUES FROM ("123-45-6789", 1000003);
+INSERT INTO customer_account VALUES FROM ("987-65-4321", 1000004);
+INSERT INTO customer_account VALUES FROM ("123-98-4567", 1000005);
+INSERT INTO customer_account VALUES FROM ("111-11-1111", 1000006);
+INSERT INTO customer_account VALUES FROM ("222-22-2222", 1000007);
+INSERT INTO customer_account VALUES FROM ("111-11-1111", 1000008);
+INSERT INTO customer_account VALUES FROM ("222-22-2222", 1000009);
+EXIT;

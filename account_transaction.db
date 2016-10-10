@@ -1,0 +1,10 @@
+CREATE TABLE account_transaction (account_number INTEGER, transaction_ID INTEGER) PRIMARY KEY (account_number);
+INSERT INTO account_transaction VALUES FROM (1000000, 1);
+INSERT INTO account_transaction VALUES FROM (1000003, 2);
+INSERT INTO account_transaction VALUES FROM (1000000, 3);
+INSERT INTO account_transaction VALUES FROM (1000001, 3);
+INSERT INTO account_transaction VALUES FROM (1000008, 4);
+INSERT INTO account_transaction VALUES FROM (1000007, 5);
+INSERT INTO account_transaction VALUES FROM (1000005, 6);
+INSERT INTO account_transaction VALUES FROM (1000005, 7);
+EXIT;

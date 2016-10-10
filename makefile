@@ -29,11 +29,19 @@ interp_main.o: interp_main.cpp
 	$(CC) $(DFLAGS) -c $< -o $@
 UnitTestParser.o: UnitTestParser.cpp
 	$(CC) $(DFLAGS) -c $< -o $@
+server.o: server.cpp
+	$(CC) $(DFLAGS) -c $< -o $@
+Application_Server.o: Application_Server.cpp
+	$(CC) $(DFLAGS) -c $< -o $@
+Application_Client.o: Application_Client.cpp
+	$(CC) $(DFLAGS) -c $< -o $@ 
+client.o: client.cpp
+	$(CC) $(DFLAGS) -c $< -o $@
 
 
 # ==== MAIN FILE ====
 	
-main: interp_main.o parse_test.o engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o UnitTestParser.o
+main: server.o Application_Server.o interp_main.o parse_test.o engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o Application_Client.o client.o
 
 # ==== Test Engine ====
 	$(CC) $(DFLAGS) engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o EngineTest.out
@@ -46,6 +54,12 @@ main: interp_main.o parse_test.o engine_test.o Attribute.o Tuple.o Table.o Condi
 
 # ==== Test Interperter ====
 	$(CC) $(DFLAGS) interp_main.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o main.out
+
+# ==== Database Server ====
+	$(CC) $(DFLAGS) server.o Application_Server.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o server
+
+# ==== Database Client ====
+	$(CC) $(DFLAGS) client.o Application_Client.o -o client
 
 clean:
 	rm -f *.o *.out

@@ -5,12 +5,10 @@ Table* Relation_Ops::select(Condition cond, Table relation) {
 	Table* new_table = new Table("select_table", relation.get_Template_Tuple()); // create new table pointer to store
 	vector<Tuple> tuples = relation.get_Tuples(); // get the tuples
 	vector<Tuple> new_tuples; // create new tuples to store in
-	
 	for (int i = 0; i < tuples.size(); i++) {
-	    if(cond.eval_condition(tuples[i])) 
-		{
+	    if(cond.eval_condition(tuples[i])) {
       		new_tuples.push_back(tuples[i]);
-    	}
+    	    }
 	}
 
 	for (int i = 0; i < new_tuples.size(); i++) {

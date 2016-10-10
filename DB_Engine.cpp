@@ -92,12 +92,14 @@ void DB_Engine::exit_interp()
   exit = true;
 }
 
-void DB_Engine::show(Table relation)
+string DB_Engine::show(Table relation)
 {
 	int width;
 	int max_length=6;
 	vector<Attribute> templ_attributes = relation.get_Template_Tuple().get_Attributes();
 	vector<Attribute> current_tuple;
+	string output;
+	stringstream ss;
 	
 	//set width of fields
 	for(int i=0; i<templ_attributes.size(); ++i)
@@ -113,13 +115,15 @@ void DB_Engine::show(Table relation)
 	width = max_length;
 	
 	cout<<"\nRelation: "<< relation.get_Name()<<"\n\n";
-	
+	ss<<"\nRelation: "<< relation.get_Name()<<"\n\n";
 	//print column headers
 	for(int i=0; i<templ_attributes.size(); ++i)
 	{
 		cout<< setw(width) << templ_attributes[i].get_Name()<<"  ";
+		ss<< setw(width) << templ_attributes[i].get_Name()<<"  ";
 	}
 	cout<<"\n";
+	ss<<"\n";
 	
 	//print separator
 	for(int i=0; i<templ_attributes.size(); ++i)
@@ -127,9 +131,11 @@ void DB_Engine::show(Table relation)
 		for(int j=0; j<=max_length+2; ++j)
     {
       cout<<"-";
+      ss<<"-";
     }
 	}
 	cout<<"\n";
+	ss<<"\n";
 	
 	//print tuples
 	for(int i=0; i<relation.tuples.size(); ++i)
@@ -141,14 +147,19 @@ void DB_Engine::show(Table relation)
 			if(current_tuple[j].is_Varchar())
 			{
 				cout<<setw(width)<<current_tuple[j].get_String_Value()<<"  ";
+				ss<<setw(width)<<current_tuple[j].get_String_Value()<<"  ";
 			}
 			else
 			{
 				cout<<setw(width)<<current_tuple[j].get_Int_Value()<<"  ";
+				ss<<setw(width)<<current_tuple[j].get_Int_Value()<<"  ";
 			}
 		}
 		cout<<"\n";
-	}	
+		ss<<"\n";
+	}
+	output = ss.str();
+	return output;	
 }
 
 Table* DB_Engine::create_relation(string name, Tuple tuple_template)

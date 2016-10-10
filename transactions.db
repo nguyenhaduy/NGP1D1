@@ -1,0 +1,9 @@
+CREATE TABLE transactions (transaction_ID INTEGER, time VARCHAR(26), amount INTEGER) PRIMARY KEY (transaction_ID);
+INSERT INTO transactions VALUES FROM (1, "Mon Oct 10 09:49:56 2016", 1542);
+INSERT INTO transactions VALUES FROM (2, "Mon Oct 10 09:51:22 2016", 2189);
+INSERT INTO transactions VALUES FROM (3, "Mon Oct 10 09:52:33 2016", 345);
+INSERT INTO transactions VALUES FROM (4, "Mon Oct 10 09:53:14 2016", 7234);
+INSERT INTO transactions VALUES FROM (5, "Mon Oct 10 09:53:48 2016", 5324);
+INSERT INTO transactions VALUES FROM (6, "Mon Oct 10 09:54:29 2016", 865);
+INSERT INTO transactions VALUES FROM (7, "Mon Oct 10 09:55:58 2016", -567);
+EXIT;

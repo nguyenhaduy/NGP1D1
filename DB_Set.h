@@ -17,6 +17,7 @@ public:
 	Table* lookup(string s);
 	int lookup(Table*);
 	Table* get_last() {return tables[tables.size()-1];}
+	string show_output;
   
     DB_Set();
 

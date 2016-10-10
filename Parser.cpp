@@ -149,6 +149,7 @@ void token::print(ostream& os, int i)
 		Some larger tokens can be difficult to read, however for these purposes it should be noted that if a command is considered
 		valid its program token will contain something other than a fail token. What that valid token represents is irrelevant (in this stage), the fact
 		it is not a fail token means the string contained valid input.
+
 */
 token Parser::parse(string i)
 {
@@ -218,8 +219,7 @@ vector<string> Parser::lex()
 			tmp == '(' ||
 			tmp == ')' ||
 			tmp == ',' ||
-			tmp == ';' ||
-			tmp == '\"')
+			tmp == ';')
 		{
 			word.put(tmp);
 			words.push_back(word.str());
@@ -317,7 +317,32 @@ vector<string> Parser::lex()
 			}
 			words.push_back(word.str());
 		}
-		else if (tmp == ' ' || tmp == '\n' || tmp == '\t'|| tmp == '\r' || tmp == '\r\n'){}
+		else if(tmp == '\"')
+		{
+			word.put(tmp);
+			words.push_back(word.str());
+			word.str("");
+			while (!(input.eof()) && (input.peek() != '\"'))
+			{
+				input.get(tmp);
+				word.put(tmp);
+			}
+			words.push_back(word.str());
+			word.str("");
+			input.get(tmp);
+			if(tmp == '\"')
+			{
+				word.put(tmp);
+				words.push_back(word.str());
+				word.str("");
+			}
+			else 
+			{
+				words = vector<string>(0);
+				return words;
+			}
+		}
+		else if (tmp == ' ' || tmp == '\n' || tmp == '\t'){}
 		else
 		{
 			words = vector<string>(0);
@@ -726,7 +751,7 @@ token Parser::close_cmd_parse(vector<string>& lexed, int& i)
 token Parser::save_cmd_parse(vector<string>& lexed, int& i)
 {
 	int original_pos = i;
-	string str1[] = { "write" };
+	string str1[] = { "save" };
 	if (word_parse(lexed, str1, i, 1))
 	{
 		token id = identifier_parse(lexed, i);

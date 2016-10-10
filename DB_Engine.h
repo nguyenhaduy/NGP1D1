@@ -4,6 +4,7 @@
 #include "Attribute.h"
 #include "Condition.h"
 #include <vector>
+#include <sstream>
 
 
 
@@ -18,7 +19,7 @@ public:
   static void close_relation(Table* relation, string filename); 		//saves and closes
   static void save_relation(Table* relation, string filename);			//saves and leaves relation open
   static void exit_interp();
-  static void show(Table relation);										//prints relation to screen
+  static string show(Table relation);										//prints relation to screen
   static Table* create_relation(string name, Tuple tuple_template);		//creates new relation from template tuple
   static void update(Table* relation, vector<string> attribute_names, vector<string> values, Condition cond);
 																		//makes update for all tuples that meet cond

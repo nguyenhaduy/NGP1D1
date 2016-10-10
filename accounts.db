@@ -1,0 +1,12 @@
+CREATE TABLE accounts (account_number INTEGER, account_type VARCHAR(10), balance INTEGER) PRIMARY KEY (account_number);
+INSERT INTO accounts VALUES FROM (1000000, "Debit", 8528);
+INSERT INTO accounts VALUES FROM (1000001, "Credit", 5444);
+INSERT INTO accounts VALUES FROM (1000002, "Debit", 6111);
+INSERT INTO accounts VALUES FROM (1000003, "Debit", 8542);
+INSERT INTO accounts VALUES FROM (1000004, "Debit", 4608);
+INSERT INTO accounts VALUES FROM (1000005, "Credit", 4675);
+INSERT INTO accounts VALUES FROM (1000006, "Debit", 0);
+INSERT INTO accounts VALUES FROM (1000007, "Debit", 5324);
+INSERT INTO accounts VALUES FROM (1000008, "Credit", 7234);
+INSERT INTO accounts VALUES FROM (1000009, "Credit", 0);
+EXIT;

@@ -6,7 +6,6 @@ DB_Set::DB_Set() : tables(vector<Table*>()) {}
 void DB_Set::input(string s)
 {
 	token t = p.parse(s);
-	//t.print(cout);
 	interpret(t);
 }
 
@@ -63,8 +62,11 @@ void DB_Set::interpret(token t)
 void DB_Set::query_interpret(token& t, vector<Table*> r)
 {
 	Table* e = expr_interpret(t[1], r);
-	if(e != nullptr) e->set_Name(t[0].get_value());
-	tables.push_back(e);
+	if(e != nullptr) 
+	{
+		e->set_Name(t[0].get_value());
+		tables.push_back(e);
+	}
 }
 
 Table* DB_Set::expr_interpret(token& t, vector<Table*> r)
@@ -177,9 +179,7 @@ Condition DB_Set::condition_interpret(token& t, vector<Table*> r)
 	{
 		Condition right = condition_interpret(t[1], r);
 		Condition_Conj cond(left, right, "||");
-		cout<< cond.conjunction <<endl;
 		Condition c(cond);
-		cout<< c.cond_conj->conjunction<<endl;
 		return c;
 	}
 }
@@ -193,9 +193,7 @@ Condition DB_Set::conjunction_interpret(token& t, vector<Table*> r)
 	{
 		Condition right = conjunction_interpret(t[1], r);
 		Condition_Conj cond(left, right, "&&");
-		//cout<< cond->conjunction <<endl;
 		Condition c(cond);
-		//cout<< c->cond_conj->conjunction<<endl;
 		return c;
 	}
 }
@@ -214,7 +212,7 @@ Condition DB_Set::comparison_interpret(token& t, vector<Table*> r)
 		return c;
 	}
 	else if(t.get_value() == "CONDITION")
-	{cout<<"hey2\n"; return condition_interpret(t[0], r);}
+		return condition_interpret(t[0], r);
 }
 
 void DB_Set::command_interpret(token& t, vector<Table*> r)
@@ -237,6 +235,7 @@ void DB_Set::open_cmd_interpret(token& t, vector<Table*> r)
 	str.append(".db");
 	Table* ptr = DB_Engine::open_relation(str);
 	if(ptr != nullptr) tables.push_back(ptr);
+	else cout<<"No table found\n";
 }
 
 void DB_Set::close_cmd_interpret(token& t, vector<Table*> r)
@@ -246,13 +245,15 @@ void DB_Set::close_cmd_interpret(token& t, vector<Table*> r)
 	name.append(".db");
 	if(ptr != nullptr) 
 	{
-		for(int i = lookup(ptr); i < tables.size()-1; ++i)
+		int i = lookup(ptr);
+		for(; i < tables.size()-1; ++i)
 		{
 			tables[i] = tables[i+1];
 		}
 		tables.resize(tables.size()-1);
 		DB_Engine::close_relation(ptr, name);
 	}
+	else cout<<"No table found\n";
 }
 
 void DB_Set::save_cmd_interpret(token& t, vector<Table*> r)
@@ -261,6 +262,7 @@ void DB_Set::save_cmd_interpret(token& t, vector<Table*> r)
 	Table* ptr = lookup(name);
 	name.append(".db");
 	if(ptr != nullptr) DB_Engine::save_relation(ptr, name);
+	else cout<<"No table found\n";
 }
 
 void DB_Set::exit_cmd_interpret(token& t, vector<Table*> r)
@@ -271,9 +273,15 @@ void DB_Set::exit_cmd_interpret(token& t, vector<Table*> r)
 void DB_Set::show_cmd_interpret(token& t, vector<Table*> r)
 {
 	string name = t[0][0].get_value();
+	string output;
 	Table* ptr = lookup(name);
-	if(ptr != nullptr) DB_Engine::show(*ptr);
-	else cout<<"No table found\n";
+	if(ptr != nullptr){
+		show_output = DB_Engine::show(*ptr);
+	}
+	else { 
+		cout<<"No table found\n";
+		show_output = "No table found\n";
+	}
 }
 
 void DB_Set::create_cmd_interpret(token& t, vector<Table*> r)
@@ -303,7 +311,9 @@ void DB_Set::create_cmd_interpret(token& t, vector<Table*> r)
 		itr = &((*itr)[2]);
 	}
 	Tuple tmp();
-	tables.push_back(DB_Engine::create_relation(name, Tuple(attrs)));
+	Table* tmp_ptr = DB_Engine::create_relation(name, Tuple(attrs));
+	if(tmp_ptr != nullptr)
+		tables.push_back(tmp_ptr);
 }
 
 void DB_Set::update_cmd_interpret(token& t, vector<Table*> r)
@@ -320,6 +330,7 @@ void DB_Set::update_cmd_interpret(token& t, vector<Table*> r)
 	}
 	Condition cond = condition_interpret(t[2], r);
 	if(ptr != nullptr) DB_Engine::update(ptr, names, vals, cond);
+	else cout<<"No table found\n";
 }
 
 void DB_Set::insert_cmd_interpret(token& t, vector<Table*> r)
@@ -350,6 +361,7 @@ void DB_Set::insert_cmd_interpret(token& t, vector<Table*> r)
 			DB_Engine::insert_tuple(ptr, attrs);
 		}
 	}
+	else cout<<"No table found\n";
 }
 
 void DB_Set::delete_cmd_interpret(token& t, vector<Table*> r)
@@ -358,4 +370,13 @@ void DB_Set::delete_cmd_interpret(token& t, vector<Table*> r)
 	Table* ptr = lookup(name);
 	Condition cond = condition_interpret(t[1], r);
 	if(ptr != nullptr) DB_Engine::remove_query(ptr, cond);
+	else cout<<"No table found\n";
 }
+
+/*DB_Set::~DB_Set()
+{
+	for(int i = 0; i < tables.size(); ++i)
+	{
+		if(tables[i] != nullptr) delete tables[i];
+	}
+}*/

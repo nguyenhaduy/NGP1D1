@@ -1,0 +1,10 @@
+CREATE TABLE customer_transaction (social_security_num VARCHAR(12), transaction_ID INTEGER) PRIMARY KEY (social_security_num);
+INSERT INTO customer_transaction VALUES FROM ("123-45-6789", 1);
+INSERT INTO customer_transaction VALUES FROM ("123-45-6789", 2);
+INSERT INTO customer_transaction VALUES FROM ("123-45-6789", 3);
+INSERT INTO customer_transaction VALUES FROM ("987-65-4321", 3);
+INSERT INTO customer_transaction VALUES FROM ("111-11-1111", 4);
+INSERT INTO customer_transaction VALUES FROM ("222-22-2222", 5);
+INSERT INTO customer_transaction VALUES FROM ("123-98-4567", 6);
+INSERT INTO customer_transaction VALUES FROM ("123-98-4567", 7);
+EXIT;
