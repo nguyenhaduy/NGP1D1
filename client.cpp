@@ -20,7 +20,7 @@ int main()
 
     int portNum; 
     bool isExit = false;
-    int bufsize = 1024;
+    int bufsize = 4096;
     char buffer[bufsize];
 
     cout << "\nWhat port number you want to connect to: ";

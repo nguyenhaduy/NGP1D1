@@ -5,8 +5,8 @@ using namespace std;
 void Application_Server::CreateCustomer(int server)
 {
   DB_Set db_set;
-  char buffer[1024];
-  recv(server, buffer, 1024, 0);
+  char buffer[4096];
+  recv(server, buffer, 4096, 0);
   cout << "Client: " << buffer << endl;
   string commands = buffer;
   cout << "Parsing commands for CreateCustomer!!!\n";
@@ -14,7 +14,7 @@ void Application_Server::CreateCustomer(int server)
 
   string result = "Successfully create new user!\n";
   strncpy(buffer, result.c_str(), sizeof(buffer));
-  send(server, buffer, 1024, 0);    
+  send(server, buffer, 4096, 0);    
   cout <<buffer;
 }
 
@@ -22,13 +22,13 @@ void Application_Server::CreateBankAccount(int server)
 {
   DB_Set db_set;
   int new_account = 1000000;  //account number starting at 1000000
-  char buffer[1024];
+  char buffer[4096];
 
-  recv(server, buffer, 1024, 0);
+  recv(server, buffer, 4096, 0);
   string ss_num = buffer;
   cout << ss_num << endl;
 
-  recv(server, buffer, 1024, 0);
+  recv(server, buffer, 4096, 0);
   string account_type = buffer;
   cout << account_type << endl;
 
@@ -77,13 +77,13 @@ void Application_Server::CreateBankAccount(int server)
     db_set.input(commands);
     string result = "Finish!!!\n";
     strncpy(buffer, result.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);    
+    send(server, buffer, 4096, 0);    
     cout <<buffer;
   }
   else {
     string result = "The database doesn't have this customer!!!\n Please try again!\n";
     strncpy(buffer, result.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);    
+    send(server, buffer, 4096, 0);    
     cout <<buffer;
   }
 }
@@ -92,17 +92,17 @@ void Application_Server::MakeTransaction(int server)
 {
   DB_Set db_set;
 
-  char buffer[1024];
+  char buffer[4096];
 
-  recv(server, buffer, 1024, 0);
+  recv(server, buffer, 4096, 0);
   string ss_num = buffer;
   cout << ss_num << endl;
 
-  recv(server, buffer, 1024, 0);
+  recv(server, buffer, 4096, 0);
   string account_number = buffer;
   cout << account_number << endl;
 
-  recv(server, buffer, 1024, 0);
+  recv(server, buffer, 4096, 0);
   string amount = buffer;
   cout << amount << endl;
 
@@ -204,19 +204,21 @@ void Application_Server::MakeTransaction(int server)
 
       string result = "Finish perform transaction!\n";
       strncpy(buffer, result.c_str(), sizeof(buffer));
-      send(server, buffer, 1024, 0);    
+      send(server, buffer, 4096, 0);    
       cout <<buffer;
-    } else {
+    } 
+    else {
       string result = "This accounts doesn't belong to this customer!!!\n Please try again!\n";
       strncpy(buffer, result.c_str(), sizeof(buffer));
-      send(server, buffer, 1024, 0);    
+      send(server, buffer, 4096, 0);    
       cout <<buffer;
     }
 
-  }else {
+  }
+  else {
     string result = "The database doesn't have this customer!!!\n Please try again!\n";
     strncpy(buffer, result.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);    
+    send(server, buffer, 4096, 0);    
     cout <<buffer;
   }
 
@@ -227,9 +229,9 @@ void Application_Server::DeleteCustomer(int server)
 {
   DB_Set db_set;
 
-  char buffer[1024];
+  char buffer[4096];
 
-  recv(server, buffer, 1024, 0);
+  recv(server, buffer, 4096, 0);
   string ss_num = buffer;
   cout << ss_num << endl;
 
@@ -282,14 +284,14 @@ void Application_Server::DeleteCustomer(int server)
 
     string result = "Finish deleting account!\n";
     strncpy(buffer, result.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);    
+    send(server, buffer, 4096, 0);    
     cout <<buffer;
   }
 
   else{
     string result = "The database doesn't have this customer!!!\n Please try again!\n";
     strncpy(buffer, result.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);    
+    send(server, buffer, 4096, 0);    
     cout <<buffer;
   }
 
@@ -300,9 +302,9 @@ void Application_Server::DeleteBankAccount(int server)
 {
   DB_Set db_set;
 
-  char buffer[1024];
+  char buffer[4096];
 
-  recv(server, buffer, 1024, 0);
+  recv(server, buffer, 4096, 0);
   string account_number = buffer;
   cout << account_number << endl;
 
@@ -329,12 +331,12 @@ void Application_Server::DeleteBankAccount(int server)
 
       string result = "Finish deleting account\n";
       strncpy(buffer, result.c_str(), sizeof(buffer));
-      send(server, buffer, 1024, 0);    
+      send(server, buffer, 4096, 0);    
       cout <<buffer;
   } else {
     string result = "The database doesn't have this account!!!\n Please try again!\n";
     strncpy(buffer, result.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);    
+    send(server, buffer, 4096, 0);    
     cout <<buffer;
   }
 }
@@ -342,8 +344,8 @@ void Application_Server::DeleteBankAccount(int server)
 void Application_Server::DeleteTransaction(int server)
 {
   DB_Set db_set;
-  char buffer[1024];
-  recv(server, buffer, 1024, 0);
+  char buffer[4096];
+  recv(server, buffer, 4096, 0);
   string transaction_ID = buffer;
   cout << transaction_ID << endl;
 
@@ -376,14 +378,14 @@ void Application_Server::DeleteTransaction(int server)
 
       string result = "Finish deleting transactions history!\n";
       strncpy(buffer, result.c_str(), sizeof(buffer));
-      send(server, buffer, 1024, 0);    
+      send(server, buffer, 4096, 0);    
       cout <<buffer;
 
   }
   else {
       string result = "The database doesn't have this transaction!!!\n Please try again!\n";
       strncpy(buffer, result.c_str(), sizeof(buffer));
-      send(server, buffer, 1024, 0);    
+      send(server, buffer, 4096, 0);    
       cout <<buffer;
     }
 }
@@ -391,8 +393,8 @@ void Application_Server::DeleteTransaction(int server)
 void Application_Server::ViewCustomer(int server)
 {
   DB_Set db_set;
-  char buffer[1024];
-  recv(server, buffer, 1024, 0);
+  char buffer[4096];
+  recv(server, buffer, 4096, 0);
   string ss_num = buffer;
   cout << ss_num << endl;
 
@@ -413,12 +415,12 @@ void Application_Server::ViewCustomer(int server)
     cout << commands;
     db_set.input(commands);
     strncpy(buffer, db_set.show_output.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);
+    send(server, buffer, 4096, 0);
   }
   else {
     string result = "The database doesn't have this customer!!!\n Please try again!\n";
     strncpy(buffer, result.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);    
+    send(server, buffer, 4096, 0);    
     cout <<buffer;
   }
 }
@@ -426,11 +428,17 @@ void Application_Server::ViewCustomer(int server)
 void Application_Server::ViewBankAccount(int server)
 {
   DB_Set db_set;
-  char buffer[1024];
-  recv(server, buffer, 1024, 0);
+  char buffer[4096];
+  recv(server, buffer, 4096, 0);
   string ss_num = buffer;
-  cout << ss_num << endl;
 
+
+
+
+aaadsfqewr
+
+
+`   
   db_set.input( (string)
       "OPEN customers;\n" + 
       "customers_ssn <- SELECT ( social_security_num == \"" + ss_num + "\" ) customers;\n" +
@@ -461,19 +469,19 @@ void Application_Server::ViewBankAccount(int server)
         "OPEN accounts;\n" + 
         "temp_table <- SELECT( account_number == \"" + to_string(temp_account) + "\" ) accounts;\n" +
         "SHOW temp_table;" +
-        "DROP TABLE temp_table;"
+        "CLOSE temp_table;"
         "CLOSE accounts;\n"
       );
       output = output + db_set.show_output;
     }
 
     strncpy(buffer, output.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);
+    send(server, buffer, 4096, 0);
   }
   else {
     string result = "The database doesn't have this customer!!!\n Please try again!\n";
     strncpy(buffer, result.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);    
+    send(server, buffer, 4096, 0);    
     cout <<buffer;
   }
 }
@@ -481,8 +489,8 @@ void Application_Server::ViewBankAccount(int server)
 void Application_Server::ViewTransaction(int server)
 {
   DB_Set db_set;
-  char buffer[1024];
-  recv(server, buffer, 1024, 0);
+  char buffer[4096];
+  recv(server, buffer, 4096, 0);
   string ss_num = buffer;
   cout << ss_num << endl;
   string output;
@@ -517,7 +525,7 @@ void Application_Server::ViewTransaction(int server)
           "OPEN transactions;\n" + 
           "temp_table <- SELECT( transaction_ID == \"" + to_string(temp_ID) + "\" ) transactions;\n" +
           "SHOW temp_table;" +
-          "DROP TABLE temp_table;"
+          "CLOSE temp_table;"
           "CLOSE transactions;\n"
         );
         output = output + db_set.show_output;
@@ -528,12 +536,12 @@ void Application_Server::ViewTransaction(int server)
       }
 
     strncpy(buffer, output.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);
+    send(server, buffer, 4096, 0);
   }
   else {
     string result = "The database doesn't have this customer!!!\n Please try again!\n";
     strncpy(buffer, result.c_str(), sizeof(buffer));
-    send(server, buffer, 1024, 0);    
+    send(server, buffer, 4096, 0);    
     cout <<buffer;
   }
 }

@@ -22,7 +22,7 @@ int main()
     int client, server;
     int portNum;
     bool isExit = false;
-    int bufsize = 1024;
+    int bufsize = 4096;
     char buffer[bufsize];
     DB_Set db_set;
 
