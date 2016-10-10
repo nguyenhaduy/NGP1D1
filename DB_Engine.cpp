@@ -309,7 +309,7 @@ void DB_Engine::save_tuple(Table* relation, Tuple tuple, ofstream& file)
     }
     else
     {
-      file<<attributes[i].get_Int_Value();
+      file<<"\""<<attributes[i].get_Int_Value()<<"\"";
     }
   }
   file<<");\n";

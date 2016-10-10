@@ -206,8 +206,7 @@ void Application_Server::MakeTransaction(int server)
       strncpy(buffer, result.c_str(), sizeof(buffer));
       send(server, buffer, 4096, 0);    
       cout <<buffer;
-    } 
-    else {
+    } else {
       string result = "This accounts doesn't belong to this customer!!!\n Please try again!\n";
       strncpy(buffer, result.c_str(), sizeof(buffer));
       send(server, buffer, 4096, 0);    
@@ -432,13 +431,6 @@ void Application_Server::ViewBankAccount(int server)
   recv(server, buffer, 4096, 0);
   string ss_num = buffer;
 
-
-
-
-aaadsfqewr
-
-
-`   
   db_set.input( (string)
       "OPEN customers;\n" + 
       "customers_ssn <- SELECT ( social_security_num == \"" + ss_num + "\" ) customers;\n" +
