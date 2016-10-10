@@ -41,7 +41,7 @@ client.o: client.cpp
 
 # ==== MAIN FILE ====
 	
-main: server.o Application_Server.o interp_main.o parse_test.o engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o Application_Client.o client.o
+main: server.o Application_Server.o interp_main.o parse_test.o engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o Application_Client.o client.o UnitTestParser.o
 
 # ==== Test Engine ====
 	$(CC) $(DFLAGS) engine_test.o Attribute.o Tuple.o Table.o Condition.o Relation_Ops.o DB_Engine.o DB_Set.o Parser.o -o EngineTest.out
