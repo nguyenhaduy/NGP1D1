@@ -1,12 +1,14 @@
 #include "Application_Client.h"
 
+#define BUFSIZE 4096
+
 using namespace std;
 
 void Application_Client::exit(int client)
 {
   cout<<"\nThank you for using Banking Application! Goodbye!\n";
-  char buffer[4096] = "#";
-  send(client, buffer, 4096, 0);
+  char buffer[BUFSIZE] = "#";
+  send(client, buffer, BUFSIZE, 0);
 
 }
 
@@ -99,8 +101,8 @@ void Application_Client::CreateCustomer(int client)
   cout<<"Day of birth: ";
   getline(cin, date_of_birth);
 
-  char buffer[4096] = "@CreateCustomer";
-  send(client, buffer, 4096, 0);
+  char buffer[BUFSIZE] = "@CreateCustomer";
+  send(client, buffer, BUFSIZE, 0);
   string query;
 
   //order of customers is (SSC number, name, address, phone, date of birth)
@@ -109,9 +111,9 @@ void Application_Client::CreateCustomer(int client)
       "\", \"" + address + "\", \"" + phone_num + "\", \"" + date_of_birth + "\");\n" + 
       "CLOSE customers;\n");
     strncpy(buffer, query.c_str(), sizeof(buffer));
-  send(client, buffer, 4096, 0);
+  send(client, buffer, BUFSIZE, 0);
 
-  recv(client, buffer, 4096, 0);
+  recv(client, buffer, BUFSIZE, 0);
   cout << buffer;
 }
 
@@ -162,14 +164,14 @@ void Application_Client::CreateBankAccount(int client)
 
   if (!cancel){
 
-    char buffer[4096] = "@CreateBankAccount";
-    send(client, buffer, 4096, 0);
+    char buffer[BUFSIZE] = "@CreateBankAccount";
+    send(client, buffer, BUFSIZE, 0);
     strncpy(buffer, ss_num.c_str(), sizeof(buffer));
-    send(client, buffer, 4096, 0);
+    send(client, buffer, BUFSIZE, 0);
     strncpy(buffer, account_type.c_str(), sizeof(buffer));
-    send(client, buffer, 4096, 0);
+    send(client, buffer, BUFSIZE, 0);
 
-    recv(client, buffer, 4096, 0);
+    recv(client, buffer, BUFSIZE, 0);
     cout << buffer;
   }
 }
@@ -229,16 +231,16 @@ void Application_Client::MakeTransaction(int client)
     }
 
   if (!cancel) {
-    char buffer[4096] = "@MakeTransaction";
-    send(client, buffer, 4096, 0);
+    char buffer[BUFSIZE] = "@MakeTransaction";
+    send(client, buffer, BUFSIZE, 0);
     strncpy(buffer, ss_num.c_str(), sizeof(buffer));
-    send(client, buffer, 4096, 0);
+    send(client, buffer, BUFSIZE, 0);
     strncpy(buffer, account_number.c_str(), sizeof(buffer));
-    send(client, buffer, 4096, 0);
+    send(client, buffer, BUFSIZE, 0);
     strncpy(buffer, amount.c_str(), sizeof(buffer));
-    send(client, buffer, 4096, 0);
+    send(client, buffer, BUFSIZE, 0);
 
-    recv(client, buffer, 4096, 0);
+    recv(client, buffer, BUFSIZE, 0);
     cout << buffer << endl;
 
 
@@ -254,12 +256,12 @@ void Application_Client::DeleteCustomer(int client)
   cout<<"\nSocial security number: ";
   getline(cin, ss_num);
 
-  char buffer[4096] = "@DeleteCustomer";
-  send(client, buffer, 4096, 0);
+  char buffer[BUFSIZE] = "@DeleteCustomer";
+  send(client, buffer, BUFSIZE, 0);
   strncpy(buffer, ss_num.c_str(), sizeof(buffer));
-  send(client, buffer, 4096, 0);
+  send(client, buffer, BUFSIZE, 0);
 
-  recv(client, buffer, 4096, 0);
+  recv(client, buffer, BUFSIZE, 0);
   cout << buffer << endl;
 }
 
@@ -273,12 +275,12 @@ void Application_Client::DeleteBankAccount(int client)
   cout<<"\nWhat account number you want to delete: ";
   getline(cin, account_number);
 
-  char buffer[4096] = "@DeleteBankAccount";
-  send(client, buffer, 4096, 0);
+  char buffer[BUFSIZE] = "@DeleteBankAccount";
+  send(client, buffer, BUFSIZE, 0);
   strncpy(buffer, account_number.c_str(), sizeof(buffer));
-  send(client, buffer, 4096, 0);
+  send(client, buffer, BUFSIZE, 0);
 
-  recv(client, buffer, 4096, 0);
+  recv(client, buffer, BUFSIZE, 0);
   cout << buffer << endl;
 }
 
@@ -289,12 +291,12 @@ void Application_Client::DeleteTransaction(int client)
   cout<<"\nDeleting transaction!";
   cout<<"\nWhat transaction ID you want to delete: ";
   getline(cin, transaction_ID);
-  char buffer[4096] = "@DeleteTransaction";
-  send(client, buffer, 4096, 0);
+  char buffer[BUFSIZE] = "@DeleteTransaction";
+  send(client, buffer, BUFSIZE, 0);
   strncpy(buffer, transaction_ID.c_str(), sizeof(buffer));
-  send(client, buffer, 4096, 0);
+  send(client, buffer, BUFSIZE, 0);
 
-  recv(client, buffer, 4096, 0);
+  recv(client, buffer, BUFSIZE, 0);
   cout << buffer << endl;
 }
 
@@ -306,12 +308,12 @@ void Application_Client::ViewCustomer(int client)
   cout<<"\nPlease enter customer's information below:\n";
   cout<<"Social security number: ";
   getline(cin, ss_num);
-  char buffer[4096] = "@ViewCustomer";
-  send(client, buffer, 4096, 0);
+  char buffer[BUFSIZE] = "@ViewCustomer";
+  send(client, buffer, BUFSIZE, 0);
   strncpy(buffer, ss_num.c_str(), sizeof(buffer));
-  send(client, buffer, 4096, 0);
+  send(client, buffer, BUFSIZE, 0);
 
-  recv(client, buffer, 4096, 0);
+  recv(client, buffer, BUFSIZE, 0);
   cout << buffer << endl;
 }
 
@@ -323,12 +325,12 @@ void Application_Client::ViewBankAccount(int client)
   cout<<"\nPlease enter customer's information below:\n";
   cout<<"Social security number: ";
   getline(cin, ss_num);
-  char buffer[4096] = "@ViewBankAccount";
-  send(client, buffer, 4096, 0);
+  char buffer[BUFSIZE] = "@ViewBankAccount";
+  send(client, buffer, BUFSIZE, 0);
   strncpy(buffer, ss_num.c_str(), sizeof(buffer));
-  send(client, buffer, 4096, 0);
+  send(client, buffer, BUFSIZE, 0);
 
-  recv(client, buffer, 4096, 0);
+  recv(client, buffer, BUFSIZE, 0);
   cout << buffer << endl;
 }
 
@@ -340,11 +342,11 @@ void Application_Client::ViewTransaction(int client)
   cout<<"\nPlease enter customer's information below:\n";
   cout<<"Social security number: ";
   getline(cin, ss_num);
-  char buffer[4096] = "@ViewTransaction";
-  send(client, buffer, 4096, 0);
+  char buffer[BUFSIZE] = "@ViewTransaction";
+  send(client, buffer, BUFSIZE, 0);
   strncpy(buffer, ss_num.c_str(), sizeof(buffer));
-  send(client, buffer, 4096, 0);
+  send(client, buffer, BUFSIZE, 0);
 
-  recv(client, buffer, 4096, 0);
+  recv(client, buffer, BUFSIZE, 0);
   cout << buffer << endl;
 }
